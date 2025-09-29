@@ -1744,7 +1744,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   --clr-body-heading: #1f2126;
   --clr-body-text: #7d7f85;
   --clr-color-blue: #000A30;
-  --clr-theme-primary: #ffab17;
+  --clr-theme-primary: #ff1717;
   --clr-theme-primary-dark: #fda610;
   --clr-theme-primary-soft: #fda610;
   --clr-bg-gray: #F6F6F6;
@@ -1898,7 +1898,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 .ns-header-logo img {
-  height: 100%;
+  height: 80%;
 }
 .ns-header-logo-img {
   position: absolute;
@@ -2400,7 +2400,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 }
 
 .ns-header-topbar-left.ns-header-topbar-left-2 {
-  background-color: #ffab17;
+  background-color: #ff1717;
   position: relative;
   z-index: 1;
   margin-left: -15px;
@@ -2413,7 +2413,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   height: 100%;
   content: "";
   width: 1370px;
-  background-color: #ffab17;
+  background-color: #ff1717;
   z-index: -1;
   right: 0;
   transform: skew(-30deg);
@@ -3094,7 +3094,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 }
 
 .ns-banner-content-2 {
-  background-color: #ffab17;
+  background-color: #ff1717;
   padding: 65px 65px;
   padding-right: 45px;
   border-radius: 5px;
@@ -3130,7 +3130,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 
 .ns-header-btn.ns-theme-btn.ns-home-2 {
   background: #fff;
-  color: #ffab17;
+  color: #ff1717;
 }
 
 .ns-banner-content-shape-2::before {
@@ -3153,7 +3153,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   width: 65px;
   content: "";
   height: 75px;
-  background: #ffab17;
+  background: #ff1717;
   clip-path: polygon(0 0, 0% 100%, 100% 50%);
   transform: translateY(-50%);
   z-index: -1;
@@ -4968,7 +4968,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 
 .ns-about-content-info-text-2 {
   font-size: 21px;
-  color: #ffab17;
+  color: #ff1717;
   margin-bottom: 0;
   line-height: 1.2;
   text-align: center;
@@ -5068,7 +5068,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   transition: all 0.3s linear 0s;
 }
 .ns-about-tab-item-2:hover {
-  background-color: #ffab17;
+  background-color: #ff1717;
 }
 
 .ns-about-tab-btn.nav-tabs {
@@ -5106,7 +5106,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   padding: 0;
 }
 .ns-about-tab-btn.nav-tabs li .nav-link.active .ns-about-tab-item-2 {
-  background-color: #ffab17;
+  background-color: #ff1717;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -5490,7 +5490,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 
 .ns-about-content-info-text-5 {
   font-size: 21px;
-  color: #ffab17;
+  color: #ff1717;
   margin-bottom: 0;
   line-height: 1.2;
   text-align: center;
@@ -10848,7 +10848,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   position: absolute;
   top: 0;
   right: 188px;
-  background: #ffab17;
+  background: #ff1717;
   width: 190px;
   height: 180px;
   display: grid;
@@ -10885,7 +10885,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   height: 160px;
   display: grid;
   place-items: center;
-  background: #ffab17;
+  background: #ff1717;
 }
 
 .ns-management-content-info h5 {
@@ -10937,7 +10937,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   width: 25px;
   height: 25px;
   flex: 0 0 25px;
-  background-color: #ffab17;
+  background-color: #ff1717;
   border-radius: 50%;
   line-height: 25px;
   text-align: center;
@@ -11007,11 +11007,11 @@ input:focus::placeholder, textarea:focus::placeholder {
   transition: all 0.3s linear 0s;
 }
 .ns-management-list-item:hover {
-  background-color: #ffab17;
-  border-color: #ffab17;
+  background-color: #ff1717;
+  border-color: #ff1717;
 }
 .ns-management-list-item:hover span {
-  color: #ffab17;
+  color: #ff1717;
   background-color: #fff;
 }
 .ns-management-list-item:hover h5 {
@@ -11054,7 +11054,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   position: absolute;
   top: 0;
   left: 0;
-  background: #ffab17;
+  background: #ff1717;
   width: 140px;
   height: 135px;
   display: grid;
@@ -12267,7 +12267,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   width: 25px;
   height: 25px;
   flex: 0 0 25px;
-  background-color: #ffab17;
+  background-color: #ff1717;
   border-radius: 50%;
   line-height: 25px;
   text-align: center;
@@ -12886,4 +12886,51 @@ input:focus::placeholder, textarea:focus::placeholder {
   z-index: 9;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*
+************
+*************************
+30. custom
+******************************************************* 
+*************************************************************** */
+.ns-text-primary {
+  color: var(--clr-theme-primary);
+}
+
+.ns-footer-widget-visitor {
+	background-color: #fff;
+	border-radius: 10px;
+	text-align: center;
+	padding: 10px;
+	transition: all 0.3s;
+	margin-bottom: 20px;
+}
+
+.ns-footer-widget-visitor:hover {
+	margin-top: -10px;
+}
+
+.ns-footer-widget-visitor .pengunjung-kategori-waktu {
+	font-weight: 600;
+	color: #242424a9;
+	position: relative;
+	top: 15px;
+}
+
+.ns-footer-widget-visitor .pengunjung-counter {
+	font-weight: 600;
+	color: #242424;
+	font-size: 2.5rem;
+	position: relative;
+	bottom: 9px;
+}
+
+.ns-footer-widget-visitor .pengunjung-icon {
+	font-weight: 600;
+	font-size: 3.7rem;
+}
+
+.ns-footer-widget-visitor .pengunjung-counter span {
+	font-weight: 600;
+	color: var(--dark-color);
+	font-size: 3.0rem;
+}

@@ -4,75 +4,91 @@
     <div class="ns-footer-top pt-95 pb-55">
         <div class="container">
             <div class="row justify-content-between">
+                <div class="col-xl-6 col-lg-5 col-md-6">
+                    <div class="ns-footer-widget mb-40">
+                        <div class="mb-40">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.3090141213215!2d106.81630257499144!3d-6.354028393635882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eda0213a645f%3A0x7e6e5450ffe43ad9!2sSDN%20SRENGSENG%20SAWAH%2011!5e0!3m2!1sen!2sid!4v1759113871828!5m2!1sen!2sid" width="100%" height="300" style="border-radius: 5px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-xl-3 col-lg-5 col-md-6">
                     <div class="ns-footer-widget mb-40">
-                        <div class="ns-footer-logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt="Not Found"></a>
+                        <h3 class="ns-footer-widget-title">Informasi Website</h3>
+                        <div class="ns-footer-logo mb-0">
+                            <a href="{{ route('beranda') }}"><img src="{{ asset('assets/images/logo-sekolah.png') }}" alt="Not Found"></a>
                         </div>
-                        <p class="ns-footer-widget-text">Nemo enim ipsam voluptate quia
-                            voluptas sit aspernatur aut odit
-                            aut fugit, sed quia magni this
-                            dolores eos qui ratione .</p>
                         <div class="ns-footer-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-5 col-md-5">
-                    <div class="ns-footer-widget mb-40">
-                        <h3 class="ns-footer-widget-title">Quick Links</h3>
-                        <div class="ns-footer-widget-list">
-                            <ul>
-                                <li><a href="#">Best Services</a></li>
-                                <li><a href="#">Department</a></li>
-                                <li><a href="#">About Our Company</a></li>
-                                <li><a href="#">Business Contact</a></li>
-                                <li><a href="#">Make An Appointment</a></li>
-                            </ul>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-5 col-md-6">
                     <div class="ns-footer-widget mb-40">
-                        <h3 class="ns-footer-widget-title">Our Contacts</h3>
+                        <h3 class="ns-footer-widget-title">Kontak Sekolah</h3>
                         <div class="ns-footer-widget-contact">
-                            <p>Adress: 27 Division St, Berakuti, <br>
-                                NY 121102, USA</p>
+                            <p>Jl. Binawarga RT.008/007 No 73<br>Kel. Srengseng Sawah, Jagakarsa, Jakarta Selatan</p>
                             <div class="ns-footer-widget-contact-info mb-15">
-                                <span>Phone:<a href="tel:+81440456782">+8 1440 456 782</a></span>
-                                <span>Fax:<a href="tel:+8846512456788">+8 846512 456 788</a></span>
+                                <span>WA:<a href="https://wa.me/+6287883122665">0878 8312 2665</a></span>
+                            </div>
+                            <div class="ns-footer-widget-contact-info mb-15">
+                                <span>Email:<br><a href="mailto:srengsengsawah.sdnss11@gmail.com" class="ms-0">srengsengsawah.sdnss11@gmail.com</a></span>
                             </div>
                             <div class="ns-footer-widget-contact-info">
-                                <span>Email:<a href="mailto:example@mail.com">Email: example@mail.com</a></span>
-                                <span>Website:<a href="#">yourwebsite.com</a></span>
+                                <span>Website:<a href="https://sdnss11.com">www.sdnss11.com</a></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-5 col-md-5">
+                <div class="col-xl-12">
                     <div class="ns-footer-widget mb-40">
-                        <h3 class="ns-footer-widget-title">Recent Post</h3>
-                        <div class="ns-footer-widget-post mb-20">
-                            <div class="ns-footer-widget-post-img w_img">
-                                <a href="blog-details.html"><img src="assets/img/footer/post-1.png" alt="Not Found"></a>
+                        <h3 class="ns-footer-widget-title">Pengunjung</h3>
+                        <div class="row justify-content-between">
+                            <div class="col-xl-3 col-lg-5 col-md-6">
+                                <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
+                                    <div class="px-3">
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                    </div>
+                                    <div class="text-start">
+                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <h1 class="pengunjung-counter">123</h1>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ns-footer-widget-post-content">
-                                <span>23 jun 2023</span>
-                                <h5 class="ns-footer-widget-post-title"><a href="blog-details.html">Get around easily
-                                        york service</a></h5>
+                            <div class="col-xl-3 col-lg-5 col-md-6">
+                                <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
+                                    <div class="px-3">
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                    </div>
+                                    <div class="text-start">
+                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <h1 class="pengunjung-counter">123</h1>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ns-footer-widget-post">
-                            <div class="ns-footer-widget-post-img w_img">
-                                <a href="blog-details.html"><img src="assets/img/footer/post-2.png" alt="Not Found"></a>
+                            <div class="col-xl-3 col-lg-5 col-md-6">
+                                <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
+                                    <div class="px-3">
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                    </div>
+                                    <div class="text-start">
+                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <h1 class="pengunjung-counter">123</h1>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ns-footer-widget-post-content">
-                                <span>23 jun 2023</span>
-                                <h5 class="ns-footer-widget-post-title"><a href="blog-details.html">Get around easily
-                                        york service</a></h5>
+                            <div class="col-xl-3 col-lg-5 col-md-6">
+                                <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
+                                    <div class="px-3">
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                    </div>
+                                    <div class="text-start">
+                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <h1 class="pengunjung-counter">123</h1>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,15 +101,13 @@
             <div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-7">
                     <div class="ns-footer-copyright-text">
-                        <p>Copyright &copy;<span>Nosei</span> all rights reserved.</p>
+                        <p>&copy; 2025 Copyright <span class="ns-text-primary">SDN Srengseng Sawah 11</span></p>
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-5">
                     <div class="ns-footer-copyright-menu text-end">
                         <ul>
-                            <li><a href="about.html">Privacy</a></li>
-                            <li><a href="about.html">Policy</a></li>
-                            <li><a href="about.html">About</a></li>
+                            <li><a href="#">Tentang</a></li>
                         </ul>
                     </div>
                 </div>
