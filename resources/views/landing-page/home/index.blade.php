@@ -5,13 +5,13 @@
     @include('landing-page.home.banner')
     <!-- banner area end -->
 
-    <!-- feature area start -->
+    <!-- feature start -->
     @include('landing-page.home.feature')
-    <!-- feature area end -->
+    <!-- feature end -->
 
-    <!-- about area start -->
-    @include('landing-page.home.about')
-    <!-- about area end -->
+    <!-- profil start -->
+    @include('landing-page.home.profil')
+    <!-- profil end -->
 
     <!-- service area start -->
     
@@ -21,9 +21,9 @@
     
     <!-- choose area end -->
 
-    <!-- project area start -->
-    @include('landing-page.home.project')
-    <!-- project area end -->
+    <!-- ekstrakulikuler area start -->
+    @include('landing-page.home.ekstrakulikuler')
+    <!-- ekstrakulikuler area end -->
 
     <!-- cta area start -->
     

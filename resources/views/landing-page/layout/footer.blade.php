@@ -15,7 +15,7 @@
                     <div class="ns-footer-widget mb-40">
                         <h3 class="ns-footer-widget-title">Informasi Website</h3>
                         <div class="ns-footer-logo mb-0">
-                            <a href="{{ route('beranda') }}"><img src="{{ asset('assets/images/logo-sekolah.png') }}" alt="Not Found"></a>
+                            <a href="{{ route('beranda') }}"><img src="{{ asset('assets/images/layout/logo-sekolah.png') }}" alt="Not Found"></a>
                         </div>
                         <div class="ns-footer-social">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
