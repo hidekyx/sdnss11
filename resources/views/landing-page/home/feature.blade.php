@@ -1,11 +1,10 @@
 <section class="ns-feature-area">
-    <div class="ns-feature-single pt-95 pb-150 bg-default" data-background="assets/img/feature/feature-map.png">
+    <div class="ns-feature-single pt-95 pb-150 bg-default" data-background="{{ asset('assets/images/layout/feature-map.png') }}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="ns-section text-center">
-                        <span class="ns-section-subtitle">Best features</span>
-                        <h2 class="ns-section-title ns-section-title-white mb-0">We Are Business Features</h2>
+                        <h2 class="ns-section-title ns-text-primary text-uppercase mb-0">Profil Sekolah</h2>
                     </div>
                 </div>
             </div>
@@ -17,33 +16,33 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ns-feature-item mb-70">
                         <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
-                        <h4 class="ns-feature-item-title">Business Network</h4>
-                        <p>Nullam vitae tempor molestie exthe.</p>
-                        <div class="ns-feature-item-icon"><i class="icofont-network"></i></div>
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="12">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah <br>Rombongan Belajar</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-group-students"></i></div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ns-feature-item mb-70">
-                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-2.jpg" alt="Not Found">
-                        <h4 class="ns-feature-item-title">60 For Mobiles</h4>
-                        <p>Nullam vitae tempor molestie exthe.</p>
-                        <div class="ns-feature-item-icon"><i class="icofont-contrast"></i></div>
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="22">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah Pendidik dan Tenaga Kependidikan</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-teacher"></i></div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ns-feature-item mb-70">
-                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-3.jpg" alt="Not Found">
-                        <h4 class="ns-feature-item-title">Line Streaming</h4>
-                        <p>Nullam vitae tempor molestie exthe.</p>
-                        <div class="ns-feature-item-icon"><i class="icofont-signal"></i></div>
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="200">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah Siswa<br> Laki laki</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-businessman"></i></div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ns-feature-item mb-70">
-                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-4.jpg" alt="Not Found">
-                        <h4 class="ns-feature-item-title">Fiber Broads</h4>
-                        <p>Nullam vitae tempor molestie exthe.</p>
-                        <div class="ns-feature-item-icon"><i class="icofont-network-tower"></i></div>
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="183">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah Siswa<br> Perempuan</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-businesswoman"></i></div>
                     </div>
                 </div>
             </div>

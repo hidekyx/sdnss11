@@ -1,37 +1,15 @@
 <header>
-    <div class="ns-header-area">
-        <div class="ns-header-wrap">
-            <div class="ns-header-logo">
-                <div class="ns-header-logo-img">
-                    <a href="{{ route('beranda') }}"><img src="{{ asset('assets/images/logo-wide.png') }}" alt="Not Found"></a>
+    <div class="ns-header-area-4">
+        <div class="ns-header-wrap ns-header-wrap-4 ml-310">
+            <div class="ns-header-logo ns-header-logo-4">
+                <img src="{{ asset('assets/images/layout/logo-bg-4.png') }}" alt="Not Found">
+                <div class="ns-header-logo-img ns-header-logo-img-4">
+                    <a href="#"><img src="{{ asset('assets/images/layout/logo-wide.png') }}" alt="Not Found"></a>
                 </div>
             </div>
-            <div class="ns-header-right">
-                <div class="ns-header-topbar d-none d-md-block">
-                    <div class="ns-header-topbar-wrap">
-                        <div class="ns-header-topbar-left">
-                            <span>Kunjungi:</span>
-                            <div class="ns-header-topbar-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                        <div class="ns-header-topbar-right">
-                            <div class="ns-header-topbar-lan-img">
-                                <img src="assets/img/bg/flag.png" alt="Not Found">
-                            </div>
-                            <div class="ns-header-topbar-lan ns-topbar-lan-1">
-                                <select name="Language" class="has-nice-select">
-                                    <option value="1">Indonesia</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ns-header-navbar">
-                    <div class="ns-header-menu">
+            <div class="ns-header-right ns-header-right-5">
+                <div class="ns-header-navbar ns-header-navbar-4 ns-header-navbar-5">
+                    <div class="ns-header-menu ns-header-menu-4">
                         <nav class="ns-header-main-menu mobile-menu-2  d-none d-xl-block" id="mobile-menu-2">
                             <ul>
                                 <li class="menu-has-child">
@@ -42,7 +20,7 @@
                                     </ul>
                                 </li>
                                 <li class="menu-has-child">
-                                    <a href="#" class="">Kesiswaan</a>
+                                    <a href="#">Kesiswaan</a>
                                     <ul class="submenu">
                                         <li><a href="#">Data Siswa</a></li>
                                         <li><a href="#">Monitor Siswa</a></li>
@@ -67,14 +45,14 @@
                                 </li>
                             </ul>
                         </nav>
-                        <div class="ns-header-menu-right p-xl-0">
-                            <div class="ns-header-menu-action">
+                        <div class="ns-header-menu-right ns-header-menu-right-4 p-xl-0">
+                            <div class="ns-header-menu-action d-none d-sm-block">
                                 <a href="#" class="ns-header-action-search"><i class="fal fa-search"></i></a>
                             </div>
-                            <div class="menu-bar d-xl-none ml-25">
-                                <span class="navbar-sign side-toggle">
+                            <div class="menu-bar d-xl-none">
+                                <div class="navbar-sign navbar-sign-white side-toggle ">
                                     <i class="fal fa-bars"></i>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>

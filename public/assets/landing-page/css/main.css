@@ -1745,8 +1745,8 @@ input:focus::placeholder, textarea:focus::placeholder {
   --clr-body-text: #7d7f85;
   --clr-color-blue: #000A30;
   --clr-theme-primary: #ff1717;
-  --clr-theme-primary-dark: #fda610;
-  --clr-theme-primary-soft: #fda610;
+  --clr-theme-primary-dark: #ff1717;
+  --clr-theme-primary-soft: #ff1717;
   --clr-bg-gray: #F6F6F6;
   --clr-bg-gray-2: #F1F1F1;
   --clr-bg-gray-3: #ECECEC;
@@ -12933,4 +12933,12 @@ input:focus::placeholder, textarea:focus::placeholder {
 	font-weight: 600;
 	color: var(--dark-color);
 	font-size: 3.0rem;
+}
+
+.text-visi {
+  font-size: 2rem !important;
+}
+
+.text-justify {
+  text-align: justify !important;
 }
