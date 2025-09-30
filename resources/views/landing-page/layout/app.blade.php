@@ -22,6 +22,10 @@
     <link href="{{ asset('assets/landing-page/css/swipper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/landing-page/css/main.css') }}" rel="stylesheet">
 
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
+
     <!-- Custom CSS -->
     @stack('styles')
 </head>

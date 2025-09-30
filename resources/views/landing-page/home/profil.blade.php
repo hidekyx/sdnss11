@@ -32,8 +32,8 @@
                                     <div class="ns-about-info-inner">
                                         <div class="ns-about-content-list">
                                             <ul class="text-justify lh-lg">
-                                                <li class="lh-base"><i class="icofont-tick-boxed"></i>Menumbuhkan keimanan dan ketakwaan melalui pembiasaan ibadah, budi pekerti, dan teladan yang baik.</li>
-                                                <li class="lh-base"><i class="icofont-tick-boxed"></i>Membentuk akhlaq mulia, sikap mandiri dan tanggung jawab dalam kehidupan sehari - hari.</li>
+                                                <li class="lh-base"><i class="icofont-tick-boxed"></i>Menumbuhkan keimanan dan ketakwaan melalui pembiasaan ibadah, budi pekerti, dan teladan yang baik</li>
+                                                <li class="lh-base"><i class="icofont-tick-boxed"></i>Membentuk akhlaq mulia, sikap mandiri dan tanggung jawab dalam kehidupan sehari - hari</li>
                                                 <li class="lh-base"><i class="icofont-tick-boxed"></i>Mengembangkan kemampuan berpikir kritis, keratif, serta ketrampilan komunikasi dan kolaborasi melalui pembelajaran aktif dan inovatif</li>
                                                 <li class="lh-base"><i class="icofont-tick-boxed"></i>Menyelenggarakan kegiatan yang pendukung kesehatan jasmani, rohani, dan gaya hidup sehat</li>
                                                 <li class="lh-base"><i class="icofont-tick-boxed"></i>Menanamkan kepedulian terhadap lingkungan melalui program berbasis konservasi dan kebersihan sekolah</li>
