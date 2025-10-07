@@ -14,10 +14,8 @@ return new class extends Migration
         if(!Schema::hasTable('kelas')) {
             Schema::create('kelas', function (Blueprint $table) {
                 $table->id();
-                $table->string('kelas');
-                $table->unsignedBigInteger('wali_kelas_id');
-                $table->foreign('wali_kelas_id')->references('id')->on('users')->cascadeOnDelete();
-                $table->string('kelas');
+                $table->string('nama', 2);
+                $table->unsignedTinyInteger('tingkat'); // e.g. 7, 8, 9
                 $table->timestamps();
                 $table->softDeletes();
             });

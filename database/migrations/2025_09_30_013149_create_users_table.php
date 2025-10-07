@@ -14,13 +14,19 @@ return new class extends Migration
         if(!Schema::hasTable('users')) {
             Schema::create('users', function (Blueprint $table) {
                 $table->id();
-                $table->unsignedBigInteger('role_id');
-                $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
+                $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
                 $table->string('name');
                 $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
                 $table->rememberToken();
+                $table->string('nip', 20)->unique()->nullable();
+                $table->string('nrk', 10)->unique()->nullable();
+                $table->string('tempat_lahir')->nullable();
+                $table->date('tanggal_lahir')->nullable();
+                $table->string('avatar')->nullable();
+                $table->string('no_hp')->nullable();
+                $table->string('alamat')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
             });

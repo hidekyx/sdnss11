@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-xl-6 col-8">
                 <div class="sidebar-logo">
-                    <a href="{{ route('beranda') }}"><img src="{{ asset('assets/images/logo-sekolah.png') }}" alt="logo-img"></a>
+                    <a href="{{ route('beranda') }}"><img src="{{ asset('assets/images/layout/logo-wide.png') }}" alt="logo-img"></a>
                 </div>
             </div>
             <div class="col-xl-6 col-4">

@@ -22,6 +22,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nip',
+        'nrk',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'avatar',
+        'no_hp',
+        'alamat',
     ];
 
     /**
@@ -45,5 +52,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function kelasGuru()
+    {
+        return $this->hasMany(KelasGuru::class, 'guru_id');
+    }
+
+    public function kelas()
+    {
+        return $this->belongsToMany(Kelas::class, 'kelas_guru', 'guru_id', 'kelas_id')
+                    ->withPivot(['tahun_ajaran', 'tanggal_mulai', 'tanggal_selesai', 'status', 'keterangan'])
+                    ->withTimestamps();
     }
 }
