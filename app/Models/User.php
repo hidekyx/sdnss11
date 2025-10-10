@@ -54,6 +54,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
     public function kelasGuru()
     {
         return $this->hasMany(KelasGuru::class, 'guru_id');

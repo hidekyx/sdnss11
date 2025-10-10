@@ -17,36 +17,36 @@ class MenuDashboardSeeder extends Seeder
             'route' => 'dashboard',
         ]);
 
-        $dataSekolah = MenuDashboard::create([
-            'name' => 'Data Sekolah',
+        $pembelajaran = MenuDashboard::create([
+            'name' => 'Pembelajaran',
             'icon' => 'database',
             'route' => null,
         ]);
 
         // Sub Menu
         MenuDashboard::create([
-            'parent_id' => $dataSekolah->id,
+            'parent_id' => $pembelajaran->id,
             'name' => 'Guru dan Tendik',
             'icon' => 'users',
-            'route' => 'guru-dan-tendik',
+            'route' => 'dashboard-pembelajaran-guru-dan-tendik',
         ]);
         
         MenuDashboard::create([
-            'parent_id' => $dataSekolah->id,
+            'parent_id' => $pembelajaran->id,
             'name' => 'Siswa',
             'icon' => 'users',
             'route' => 'siswa',
         ]);
 
         MenuDashboard::create([
-            'parent_id' => $dataSekolah->id,
+            'parent_id' => $pembelajaran->id,
             'name' => 'Kelas',
             'icon' => 'users',
             'route' => 'kelas',
         ]);
 
         $pelajaran = MenuDashboard::create([
-            'parent_id' => $dataSekolah->id,
+            'parent_id' => $pembelajaran->id,
             'name' => 'Pelajaran',
             'icon' => 'users',
             'route' => null,

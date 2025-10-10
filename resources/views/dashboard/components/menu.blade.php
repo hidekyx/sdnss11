@@ -3,8 +3,8 @@
 <ul>
     @foreach($menus as $menu)
         <li>
-            <a href="{{ $menu->url ?? '#' }}" 
-               class="top-menu {{ request()->is(ltrim($menu->url, '/')) ? 'top-menu--active' : '' }}">
+            <a href="{{ Route::has($menu->route) ? route($menu->route) : '#' }}"
+               class="top-menu {{ request()->is(ltrim($menu->route, '/')) ? 'top-menu--active' : '' }}">
                
                 <div class="top-menu__icon">
                     <i data-feather="{{ $menu->icon }}"></i>
