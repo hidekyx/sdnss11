@@ -10,6 +10,10 @@
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{ asset('assets/dashboard/css/app.css') }}" />
         <!-- END: CSS Assets-->
+
+        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @endif
     </head>
     <!-- END: Head -->
     <body class="app">
@@ -30,5 +34,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>
         <script src="{{ asset('assets/dashboard/js/app.js') }}"></script>
         <!-- END: JS Assets-->
+
+        @stack('scripts')
     </body>
 </html>

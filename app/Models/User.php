@@ -70,4 +70,16 @@ class User extends Authenticatable
                     ->withPivot(['tahun_ajaran', 'tanggal_mulai', 'tanggal_selesai', 'status', 'keterangan'])
                     ->withTimestamps();
     }
+
+    public function scopeSearch($query, $search)
+    {
+        $query->where('name', 'like', '%' . $search . '%');
+    }
+
+    public function scopeRole($query, $role)
+    {
+        if ($role != "Semua") {
+            $query->where('role_id', $role);
+        }
+    }
 }

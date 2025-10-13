@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Models\MenuDashboard;
 use App\Models\Role;
 use App\Models\User;
@@ -21,11 +22,44 @@ class GuruDanTendikController extends Controller
 
         $additionalData = [
             'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
-            'user' => $user->get(),
+            'user' => $user->paginate(25),
             'kategoriRole' => Role::get(),
         ];
 
         return $this->createView('Daftar', 'dashboard.pembelajaran.guru-dan-tendik.index', $additionalData);
+    }
+
+    public function create(): View
+    {
+        $additionalData = [
+            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
+            'kategoriRole' => Role::get(),
+        ];
+
+        return $this->createView('Tambah', 'dashboard.pembelajaran.guru-dan-tendik.form', $additionalData);
+    }
+
+    public function store(UserRequest $request)
+    {
+        try {
+            $data = $request->validated();
+
+            if ($request->hasFile('avatar')) {
+                $data['avatar'] = storeFile($request->file('avatar'), 'public/images/avatar');
+            }
+
+            $data['password'] = bcrypt($data['password']);
+
+            User::create($data);
+
+            return redirect()
+                ->route('dashboard-pembelajaran-guru-dan-tendik')
+                ->with('success', 'Data guru dan tendik berhasil disimpan');
+        } catch (\Exception $e) {
+            return back()
+                ->with('error', 'Validasi Gagal!')
+                ->withInput();
+        }
     }
 
     private function createView(string $detailMenu, string $viewPath, array $additionalData = []): View
