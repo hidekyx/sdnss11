@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GuruDanTendikController extends Controller
 {
@@ -17,6 +18,7 @@ class GuruDanTendikController extends Controller
 
     public function index(Request $request): View
     {
+
         $user = User::with('role')->orderBy('id');
         $this->applyFilters($user, $request);
 
@@ -45,21 +47,90 @@ class GuruDanTendikController extends Controller
             $data = $request->validated();
 
             if ($request->hasFile('avatar')) {
-                $data['avatar'] = storeFile($request->file('avatar'), 'public/images/avatar');
+                $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
             }
 
             $data['password'] = bcrypt($data['password']);
 
             User::create($data);
 
-            return redirect()
-                ->route('dashboard-pembelajaran-guru-dan-tendik')
-                ->with('success', 'Data guru dan tendik berhasil disimpan');
+            return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
+                ->with([
+                    'alert_type' => 'success',
+                    'alert_title' => 'Berhasil!',
+                    'alert_messages' => ['Data guru dan tendik berhasil disimpan.'],
+                ]);
         } catch (\Exception $e) {
             return back()
-                ->with('error', 'Validasi Gagal!')
-                ->withInput();
+                ->with([
+                    'alert_type' => 'danger',
+                    'alert_title' => 'Validasi Gagal!',
+                    'alert_messages' => [$e],
+                ]);
         }
+    }
+
+    public function edit($id): View
+    {
+        $user = User::findOrfail($id);
+        $additionalData = [
+            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
+            'user' => $user,
+            'kategoriRole' => Role::get(),
+        ];
+
+        return $this->createView('Edit', 'dashboard.pembelajaran.guru-dan-tendik.form', $additionalData);
+    }
+
+    public function update(UserRequest $request, $id)
+    {
+        try {
+            $user = User::findOrfail($id);
+            $data = $request->validated();
+
+            if ($request->hasFile('avatar')) {
+                $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
+            }
+
+            $user->update($data);
+
+            return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
+                ->with([
+                    'alert_type' => 'success',
+                    'alert_title' => 'Berhasil!',
+                    'alert_messages' => ['Data guru dan tendik berhasil diperbaharui.'],
+                ]);
+        } catch (\Exception $e) {
+            return back()
+                ->with([
+                    'alert_type' => 'danger',
+                    'alert_title' => 'Validasi Gagal!',
+                    'alert_messages' => [$e],
+                ]);
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+            return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
+                ->with([
+                    'alert_type' => 'success',
+                    'alert_title' => 'Berhasil!',
+                    'alert_messages' => ['Data guru dan tendik berhasil dihapus.'],
+                ]);
+        } catch (\Exception $e) {
+            return back()
+                ->with([
+                    'alert_type' => 'danger',
+                    'alert_title' => 'Gagal!',
+                    'alert_messages' => [$e],
+                ]);
+        }
+
+        return redirect()->route('dashboard-manajemen-user');
     }
 
     private function createView(string $detailMenu, string $viewPath, array $additionalData = []): View

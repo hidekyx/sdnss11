@@ -15,7 +15,6 @@ class UserRequest extends FormRequest
 
     public function rules()
     {
-        // dd('tes');
         $role = Role::get()->pluck('id')->toArray();
         $rules = [
             'role_id' => 'required|in:' . implode(',', $role),
@@ -81,7 +80,9 @@ class UserRequest extends FormRequest
             'no_hp.required' => 'No HP tidak boleh kosong',
             'no_hp.numeric' => 'No HP tidak valid',
             'nip.numeric' => 'NIP harus berupa angka',
+            'nip.unique' => 'NIP telah terdaftar',
             'nrk.numeric' => 'NRK harus berupa angka',
+            'nrk.unique' => 'NRK telah terdaftar',
             'tempat_lahir.string' => 'Tempat lahir tidak valid',
             'tanggal_lahir.date' => 'Tanggal lahir tidak valid',
             'alamat.string' => 'Alamat tidak valid',

@@ -39,6 +39,14 @@
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
+            @if(session('alert_type'))
+            <x-alert
+                :title="session('alert_title')"
+                :type="session('alert_type')"
+                :messages="session('alert_messages')"
+                :display="'block'" />
+            @endif
+
             <table class="table table-report -mt-2 mb-2">
                 <thead>
                     <tr>
@@ -57,7 +65,7 @@
                             <div class="flex">
                                 <div class="w-10 h-10 image-fit zoom-in">
                                     @if($u->avatar && Storage::disk('public')->exists('images/avatar/' . $u->avatar))
-                                    <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" title="{{ $u->name }}">
+                                    <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('storage/images/avatar/'.$u->avatar) }}" title="{{ $u->name }}">
                                     @else
                                     <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" title="{{ $u->name }}">
                                     @endif
@@ -83,8 +91,16 @@
                         </td>
                         <td class="table-report__action w-56">
                             <div class="flex justify-center items-center">
-                                <a class="flex items-center text-theme-11 mr-3" href="javascript:;"> <i data-feather="edit" class="w-4 h-4 mr-1"></i> Edit </a>
-                                <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-confirmation-modal"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                                <a class="flex items-center text-theme-11 mr-3" href="{{ route('dashboard-pembelajaran-guru-dan-tendik-edit', $u->id) }}"> <i data-feather="edit" class="w-4 h-4 mr-1"></i> Edit </a>
+                                <a class="flex items-center text-theme-6 delete-btn"
+                                    href="javascript:;"
+                                    data-toggle="modal"
+                                    data-target="#delete-confirmation-modal"
+                                    data-name="{{ $u->name }}"
+                                    data-submenu="{{ $subMenu }}"
+                                    data-url="{{ route('dashboard-pembelajaran-guru-dan-tendik-hapus', $u->id) }}">
+                                    <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -98,17 +114,34 @@
     <!-- BEGIN: Delete Confirmation Modal -->
     <div class="modal" id="delete-confirmation-modal">
         <div class="modal__content">
-            <div class="p-5 text-center">
-                <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                <div class="text-3xl mt-5">Lanjutkan hapus?</div>
-                <div class="text-gray-600 mt-2">Data {{ $subMenu }} akan dihapus.</div>
-            </div>
-            <div class="px-5 pb-8 text-center">
-                <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Batal</button>
-                <button type="button" class="button w-24 bg-theme-6 text-white">Hapus</button>
-            </div>
+            <form id="delete-form" method="POST" action="">
+                @csrf
+                @method('DELETE')
+
+                <div class="p-5 text-center">
+                    <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                    <div class="text-3xl mt-5">Lanjutkan hapus?</div>
+                    <div class="text-gray-600 mt-2">Data <span id="delete-item"></span> akan dihapus.</div>
+                </div>
+                <div class="px-5 pb-8 text-center">
+                    <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Batal</button>
+                    <button type="submit" class="button w-24 bg-theme-6 text-white">Hapus</button>
+                </div>
+            </form>
         </div>
     </div>
     <!-- END: Delete Confirmation Modal -->
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).on('click', '.delete-btn', function() {
+        let name = $(this).data('name');
+        let submenu = $(this).data('submenu') || '';
+        let url = $(this).data('url');
+        $('#delete-item').text(submenu + ' ' + name);
+        $('#delete-form').attr('action', url);
+    });
+</script>
+@endpush
