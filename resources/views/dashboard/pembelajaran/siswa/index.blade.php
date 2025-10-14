@@ -7,7 +7,7 @@
     </h2>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
-            <a href="{{ route('dashboard-pembelajaran-guru-dan-tendik-tambah') }}"><button class="button text-white bg-theme-1 shadow-md mr-2">Tambah {{ $subMenu }}</button></a>
+            <a href="{{ route('dashboard-pembelajaran-siswa-tambah') }}"><button class="button text-white bg-theme-1 shadow-md mr-2">Tambah {{ $subMenu }}</button></a>
             <div class="dropdown relative">
                 <button class="dropdown-toggle button px-2 box text-gray-700">
                     <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="chevron-down"></i> </span>
@@ -22,10 +22,10 @@
             </div>
             <form method="get" action="#" autocomplete="off" class="flex ml-auto">
                 <div class="mr-3">
-                    <select name="role" data-placeholder="Filter Role" class="select2 w-full pr-4">
-                        <option value="Semua">Semua Role</option>
-                        @foreach($kategoriRole as $kr)
-                        <option value="{{ $kr->id }}">{{ $kr->name }}</option>
+                    <select name="kelas" data-placeholder="Filter Kelas" class="select2 w-full pr-4">
+                        <option value="Semua">Semua Kelas</option>
+                        @foreach($kelas as $k)
+                        <option value="{{ $k->id }}">{{ $k->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -51,54 +51,54 @@
                 <thead>
                     <tr>
                         <th class="whitespace-no-wrap">FOTO</th>
-                        <th class="whitespace-no-wrap">NAMA/NIP/NRK</th>
-                        <th class="text-center whitespace-no-wrap">ROLE</th>
-                        <th class="whitespace-no-wrap">TTL/ALAMAT</th>
-                        <th class="text-center whitespace-no-wrap">HP/EMAIL</th>
+                        <th class="text-center whitespace-no-wrap">KELAS AKTIF</th>
+                        <th class="whitespace-no-wrap">NAMA/NIPD/NISN/NIK</th>
+                        <th class="whitespace-no-wrap">TTL/JK/AGAMA</th>
+                        <th class="text-center whitespace-no-wrap">NO HP/ALAMAT</th>
                         <th class="text-center whitespace-no-wrap">FITUR</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($user as $u)
+                    @foreach($siswa as $s)
                     <tr class="intro-x">
                         <td class="w-40">
                             <div class="flex">
                                 <div class="w-10 h-10 image-fit zoom-in">
-                                    @if($u->avatar && Storage::disk('public')->exists('images/avatar/' . $u->avatar))
-                                    <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('storage/images/avatar/'.$u->avatar) }}" title="{{ $u->name }}">
+                                    @if($s->avatar && Storage::disk('public')->exists('images/avatar/' . $s->avatar))
+                                    <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('storage/images/avatar/'.$s->avatar) }}" title="{{ $s->name }}">
                                     @else
-                                    <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" title="{{ $u->name }}">
+                                    <img alt="Avatar" class="tooltip rounded-full" src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" title="{{ $s->name }}">
                                     @endif
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <a href="#" class="font-medium text-theme-1 whitespace-no-wrap">{{ $u->name }}</a>
-                            <div class="text-gray-600 text-xs whitespace-no-wrap"><b>NIP:</b> {{ $u->nip ?? '-' }} / <b>NRK:</b> {{ $u->nrk ?? '-' }}</div>
-                        </td>
                         <td class="w-40">
                             <div class="flex items-center justify-center text-theme-6">
-                                <div class="py-1 px-2 rounded-full text-xs bg-{{ $u->role->color }}-200 text-{{ $u->role->color }}-600 cursor-pointer text-center truncate">{{ $u->role->name }}</div>
+                                <div class="py-1 px-2 rounded-full text-xs bg-{{ $s->kelas->first()->color ?? '' }}-200 text-{{ $s->kelas->first()->color ?? '' }}-600 cursor-pointer text-center truncate">{{ $s->kelas->first()->nama ?? '-' }}</div>
                             </div>
                         </td>
                         <td>
-                            <div class="font-medium whitespace-no-wrap">{{ $u->tempat_lahir && $u->tanggal_lahir ? $u->tempat_lahir .', '. \Carbon\Carbon::parse($u->tanggal_lahir)->isoFormat('D MMMM Y') : '-' }}</div>
-                            <div class="text-gray-600 text-xs whitespace-no-wrap">{{ $u->alamat }}</div>
+                            <a href="#" class="font-medium text-theme-1 whitespace-no-wrap">{{ $s->nama }}</a>
+                            <div class="text-gray-600 text-xs whitespace-no-wrap"><b>NIPD:</b> {{ $s->nipd ?? '-' }} / <b>NISN:</b> {{ $s->nisn ?? '-' }} / <b>NIK:</b> {{ $s->nik ?? '-' }}</div>
                         </td>
                         <td>
-                            <div class="font-medium whitespace-no-wrap">{{ $u->no_hp }}</div>
-                            <div class="text-gray-600 text-xs whitespace-no-wrap">{{ $u->email }}</div>
+                            <div class="font-medium whitespace-no-wrap">{{ $s->tempat_lahir && $s->tanggal_lahir ? $s->tempat_lahir .', '. \Carbon\Carbon::parse($s->tanggal_lahir)->isoFormat('D MMMM Y') : '-' }}</div>
+                            <div class="text-gray-600 text-xs whitespace-no-wrap"><b>{{ $s->jenis_kelamin }}</b> / <b>Agama:</b> {{ $s->agama ?? '-' }}</div>
+                        </td>
+                        <td>
+                            <div class="font-medium whitespace-no-wrap">{{ $s->no_hp }}</div>
+                            <div class="text-gray-600 text-xs">{{ $s->alamat_detail . ' RT ' . $s->alamat_rt . ' RW ' . $s->alamat_rw . $s->alamat_dusun . ' Kel. ' . $s->alamat_kelurahan  . ' Kec. ' . $s->alamat_kecamatan . ' Kode Pos. ' . $s->alamat_kode_pos  }}</div>
                         </td>
                         <td class="table-report__action w-56">
                             <div class="flex justify-center items-center">
-                                <a class="flex items-center text-theme-11 mr-3" href="{{ route('dashboard-pembelajaran-guru-dan-tendik-edit', $u->id) }}"> <i data-feather="edit" class="w-4 h-4 mr-1"></i> Edit </a>
+                                <a class="flex items-center text-theme-11 mr-3" href="{{ route('dashboard-pembelajaran-siswa-edit', $s->id) }}"> <i data-feather="edit" class="w-4 h-4 mr-1"></i> Edit </a>
                                 <a class="flex items-center text-theme-6 delete-btn"
                                     href="javascript:;"
                                     data-toggle="modal"
                                     data-target="#delete-confirmation-modal"
-                                    data-name="{{ $u->name }}"
+                                    data-name="{{ $s->nama }}"
                                     data-submenu="{{ $subMenu }}"
-                                    data-url="{{ route('dashboard-pembelajaran-guru-dan-tendik-hapus', $u->id) }}">
+                                    data-url="{{ route('dashboard-pembelajaran-siswa-hapus', $s->id) }}">
                                     <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete
                                 </a>
                             </div>
@@ -107,7 +107,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $user->withQueryString() }}
+            {{ $siswa->withQueryString() }}
         </div>
         <!-- END: Data List -->
     </div>

@@ -35,7 +35,7 @@ class MenuDashboardSeeder extends Seeder
             'parent_id' => $pembelajaran->id,
             'name' => 'Siswa',
             'icon' => 'users',
-            'route' => 'siswa',
+            'route' => 'dashboard-pembelajaran-siswa',
         ]);
 
         MenuDashboard::create([

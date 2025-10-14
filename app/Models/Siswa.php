@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Siswa extends Model
 {
     use SoftDeletes;
-    
+
     protected $table = "siswa";
-    
+
     protected $fillable = [
         'nama',
         'nipd',
@@ -39,7 +39,21 @@ class Siswa extends Model
     public function kelas()
     {
         return $this->belongsToMany(Kelas::class, 'kelas_siswa', 'siswa_id', 'kelas_id')
-                    ->withPivot(['tahun_ajaran', 'tanggal_mulai', 'tanggal_selesai', 'status'])
-                    ->withTimestamps();
+            ->withPivot(['tahun_ajaran', 'tanggal_mulai', 'tanggal_selesai', 'status'])
+            ->withTimestamps();
+    }
+
+    public function scopeSearch($query, $search)
+    {
+        $query->where('nama', 'like', '%' . $search . '%');
+    }
+
+    public function scopeKelas($query, $kelas)
+    {
+        if ($kelas != "Semua") {
+            $query->whereHas('kelas', function ($q) use ($kelas) {
+                $q->where('kelas.id', $kelas);
+            });
+        }
     }
 }

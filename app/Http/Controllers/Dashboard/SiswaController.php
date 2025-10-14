@@ -4,30 +4,32 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Models\Kelas;
 use App\Models\MenuDashboard;
 use App\Models\Role;
+use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class GuruDanTendikController extends Controller
+class SiswaController extends Controller
 {
     public $mainMenu    = "Pembelajaran";
-    public $subMenu     = "Guru dan Tendik";
+    public $subMenu     = "Siswa";
 
     public function index(Request $request): View
     {
 
-        $user = User::with('role')->orderBy('id');
-        $this->applyFilters($user, $request);
+        $siswa = Siswa::with('kelas')->orderByDesc('id');
+        $this->applyFilters($siswa, $request);
 
         $additionalData = [
             'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
-            'user' => $user->paginate(25),
-            'kategoriRole' => Role::get(),
+            'siswa' => $siswa->paginate(100),
+            'kelas' => Kelas::get(),
         ];
 
-        return $this->createView('Daftar', 'dashboard.pembelajaran.guru-dan-tendik.index', $additionalData);
+        return $this->createView('Daftar', 'dashboard.pembelajaran.siswa.index', $additionalData);
     }
 
     public function create(): View
@@ -37,7 +39,7 @@ class GuruDanTendikController extends Controller
             'kategoriRole' => Role::get(),
         ];
 
-        return $this->createView('Tambah', 'dashboard.pembelajaran.guru-dan-tendik.form', $additionalData);
+        return $this->createView('Tambah', 'dashboard.pembelajaran.siswa.form', $additionalData);
     }
 
     public function store(UserRequest $request)
@@ -53,11 +55,11 @@ class GuruDanTendikController extends Controller
 
             User::create($data);
 
-            return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
+            return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
-                    'alert_messages' => ['Data guru dan tendik berhasil disimpan.'],
+                    'alert_messages' => ['Data siswa berhasil disimpan.'],
                 ]);
         } catch (\Exception $e) {
             return back()
@@ -78,7 +80,7 @@ class GuruDanTendikController extends Controller
             'kategoriRole' => Role::get(),
         ];
 
-        return $this->createView('Edit', 'dashboard.pembelajaran.guru-dan-tendik.form', $additionalData);
+        return $this->createView('Edit', 'dashboard.pembelajaran.siswa.form', $additionalData);
     }
 
     public function update(UserRequest $request, $id)
@@ -93,11 +95,11 @@ class GuruDanTendikController extends Controller
 
             $user->update($data);
 
-            return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
+            return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
-                    'alert_messages' => ['Data guru dan tendik berhasil diperbaharui.'],
+                    'alert_messages' => ['Data siswa berhasil diperbaharui.'],
                 ]);
         } catch (\Exception $e) {
             return back()
@@ -114,11 +116,11 @@ class GuruDanTendikController extends Controller
         try {
             $user = User::findOrFail($id);
             $user->delete();
-            return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
+            return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
-                    'alert_messages' => ['Data guru dan tendik berhasil dihapus.'],
+                    'alert_messages' => ['Data siswa berhasil dihapus.'],
                 ]);
         } catch (\Exception $e) {
             return back()
@@ -144,14 +146,14 @@ class GuruDanTendikController extends Controller
     private function applyFilters($query, Request $request): void
     {
         $searchQuery = $request->query('search');
-        $roleQuery = $request->query('role');
+        $kelasQuery = $request->query('kelas');
 
         if ($searchQuery) {
             $query->search($searchQuery);
         }
 
-        if ($roleQuery) {
-            $query->role($roleQuery);
+        if ($kelasQuery) {
+            $query->kelas($kelasQuery);
         }
     }
 }
