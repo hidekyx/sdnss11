@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">{{ $detailMenu }} - {{ $subMenu }}</h4>
-                        <a href="{{ route('dashboard-pembelajaran-guru-dan-tendik-tambah') }}"><button type="button" class="btn btn-rounded btn-primary btn-xs">Tambah</button></a>
+                        <a href="{{ route('dashboard-pembelajaran-siswa-tambah') }}"><button type="button" class="btn btn-rounded btn-primary btn-xs">Tambah</button></a>
                     </div>
                     <div class="card-body">
                         @if(session('alert_type'))
@@ -33,42 +33,42 @@
                                 <thead>
                                     <tr>
                                         <th>FOTO</th>
-                                        <th>NAMA/NIP/NRK</th>
-                                        <th>ROLE</th>
-                                        <th>TTL/ALAMAT</th>
-                                        <th>HP/EMAIL</th>
+                                        <th>KELAS AKTIF</th>
+                                        <th>NAMA/NIPD/NISN/NIK</th>
+                                        <th>TTL/JK/AGAMA</th>
+                                        <th>HP/ALAMAT</th>
                                         <th>FITUR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($user as $u)
+                                    @foreach($siswa as $s)
                                     <tr>
                                         <td>
-                                            @if($u->avatar && Storage::disk('public')->exists('images/avatar/' . $u->avatar))
-                                            <img src="{{ asset('storage/images/avatar/'.$u->avatar) }}" class="rounded-lg me-2" width="24" alt="Foto Profil">
+                                            @if($s->avatar && Storage::disk('public')->exists('images/avatar/' . $s->avatar))
+                                            <img src="{{ asset('storage/images/avatar/'.$s->avatar) }}" class="rounded-lg me-2" width="24" alt="Foto Profil">
                                             @else
                                             <img src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" class="rounded-lg me-2" width="24" alt="Foto Profil">
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="#" class="fw-bold text-primary">{{ $u->name }}</a>
-                                            <div class="text-sm"><b>NIP:</b> {{ $u->nip ?? '-' }} / <b>NRK:</b> {{ $u->nrk ?? '-' }}</div>
+                                            <span class="badge light badge-{{ $s->kelas->first()->color }}">{{ $s->kelas->first()->nama }}</span>
                                         </td>
                                         <td>
-                                            <span class="badge light badge-{{ $u->role->color }}">{{ $u->role->name }}</span>
+                                            <a href="#" class="fw-bold text-primary">{{ $s->nama }}</a>
+                                            <div class="text-sm"><b>NIPD:</b> {{ $s->nipd ?? '-' }} / <b>NISN:</b> {{ $s->nisn ?? '-' }} / <b>NIK:</b> {{ $s->nik ?? '-' }}</div>
                                         </td>
                                         <td>
-                                            <div class="fw-bold">{{ $u->tempat_lahir && $u->tanggal_lahir ? $u->tempat_lahir .', '. \Carbon\Carbon::parse($u->tanggal_lahir)->isoFormat('D MMMM Y') : '-' }}</div>
-                                            <div class="text-sm">{{ $u->alamat }}</div>
+                                            <div class="fw-bold">{{ $s->tempat_lahir && $s->tanggal_lahir ? $s->tempat_lahir .', '. \Carbon\Carbon::parse($s->tanggal_lahir)->isoFormat('D MMMM Y') : '-' }}</div>
+                                            <div class="text-sm">{{ $s->jenis_kelamin }}</b> / <b>Agama:</b> {{ $s->agama ?? '-' }}</div>
                                         </td>
                                         <td>
-                                            <div class="fw-bold">{{ $u->no_hp }}</div>
-                                            <div class="text-sm">{{ $u->email }}</div>
+                                            <div class="fw-bold">{{ $s->no_hp }}</div>
+                                            <div class="text-sm">{{ $s->alamat_detail . ' RT ' . $s->alamat_rt . ' RW ' . $s->alamat_rw . $s->alamat_dusun . ' Kel. ' . $s->alamat_kelurahan  . ' Kec. ' . $s->alamat_kecamatan . ' Kode Pos. ' . $s->alamat_kode_pos  }}</div>
                                         </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="{{ route('dashboard-pembelajaran-guru-dan-tendik-edit', $u->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
-                                                <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $u->name }}" data-url="{{ route('dashboard-pembelajaran-guru-dan-tendik-hapus', $u->id) }}"><i class="fa fa-trash"></i></a>
+                                                <a href="{{ route('dashboard-pembelajaran-siswa-edit', $s->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
+                                                <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $s->name }}" data-url="{{ route('dashboard-pembelajaran-siswa-hapus', $s->id) }}"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

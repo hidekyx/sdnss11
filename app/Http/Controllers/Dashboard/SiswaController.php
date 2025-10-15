@@ -25,7 +25,7 @@ class SiswaController extends Controller
 
         $additionalData = [
             'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
-            'siswa' => $siswa->paginate(100),
+            'siswa' => $siswa->get(),
             'kelas' => Kelas::get(),
         ];
 

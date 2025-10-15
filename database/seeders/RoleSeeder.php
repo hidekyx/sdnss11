@@ -16,27 +16,27 @@ class RoleSeeder extends Seeder
         $datas = [
             [
                 'name'    => 'Admin',
-                'color'    => '',
+                'color'    => 'dark',
             ],
             [
                 'name'    => 'Kepala Sekolah',
-                'color'    => '',
+                'color'    => 'primary',
             ],
             [
                 'name'    => 'Tata Usaha',
-                'color'    => '',
+                'color'    => 'success',
             ],
             [
                 'name'    => 'Wali Kelas',
-                'color'    => '',
+                'color'    => 'danger',
             ],
             [
                 'name'    => 'Guru Pelajaran',
-                'color'    => '',
+                'color'    => 'warning',
             ],
             [
                 'name'    => 'Penjaga Sekolah',
-                'color'    => '',
+                'color'    => 'info',
             ],
         ];
 

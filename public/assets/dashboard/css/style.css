@@ -29273,6 +29273,66 @@ table {
     color: #000;
 }
 
+.badge-red {
+    background-color: #fc818155;
+    color: #e53e3e;
+}
+
+.badge-orange {
+    background-color: #ffa72655;
+    color: #fb8c00;
+}
+
+.badge-yellow {
+    background-color: #ffee5855;
+    color: #fdd835;
+}
+
+.badge-green {
+    background-color: #4caf5055;
+    color: #388e3c;
+}
+
+.badge-lime {
+    background-color: #dce77555;
+    color: #cddc39;
+}
+
+.badge-teal {
+    background-color: #26a69a55;
+    color: #00897b;
+}
+
+.badge-blue {
+    background-color: #42a5f555;
+    color: #1e88e5;
+}
+
+.badge-indigo {
+    background-color: #5c6bc055;
+    color: #3949ab;
+}
+
+.badge-purple {
+    background-color: #ab47bc55;
+    color: #8e24aa;
+}
+
+.badge-pink {
+    background-color: #ec407a55;
+    color: #d81b60;
+}
+
+.badge-cyan {
+    background-color: #26c6da55;
+    color: #00acc1;
+}
+
+.badge-brown {
+    background-color: #8d6e6355;
+    color: #6d4c41;
+}
+
 .light.badge-default {
     background: #ADB6C7;
 }
