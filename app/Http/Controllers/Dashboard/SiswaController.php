@@ -29,7 +29,7 @@ class SiswaController extends Controller
             'kelas' => Kelas::get(),
         ];
 
-        return $this->createView('Daftar', 'dashboard.pembelajaran.siswa.index', $additionalData);
+        return $this->createView('List', 'dashboard.pembelajaran.siswa.index', $additionalData);
     }
 
     public function create(): View
