@@ -27,7 +27,7 @@ class GuruDanTendikController extends Controller
             'kategoriRole' => Role::get(),
         ];
 
-        return $this->createView('Daftar', 'dashboard.pembelajaran.guru-dan-tendik.index', $additionalData);
+        return $this->createView('List', 'dashboard.pembelajaran.guru-dan-tendik.index', $additionalData);
     }
 
     public function create(): View
