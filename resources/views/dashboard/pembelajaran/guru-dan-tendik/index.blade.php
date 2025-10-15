@@ -27,7 +27,7 @@
                             :messages="session('alert_messages')"
                             :display="'block'" />
                         @endif
-                        
+
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
@@ -68,7 +68,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a href="{{ route('dashboard-pembelajaran-guru-dan-tendik-edit', $u->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $u->name }}" data-url="{{ route('dashboard-pembelajaran-guru-dan-tendik-hapus', $u->id) }}"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -82,4 +82,36 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <form id="delete-form" method="POST" action="">
+            @csrf
+            @method('DELETE')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hapus {{ $subMenu }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">Data <span id="delete-item" class="fw-bold"></span> akan dihapus.</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light light" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger light">Hapus</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).on('click', '.delete-btn', function() {
+        let name = $(this).data('name');
+        let url = $(this).data('url');
+        $('#delete-item').text(name);
+        $('#delete-form').attr('action', url);
+    });
+</script>
+@endpush

@@ -101,6 +101,7 @@ class GuruDanTendikController extends Controller
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
+                    'alert_icon' => 'mdi-check-circle-outline',
                     'alert_messages' => ['Data guru dan tendik berhasil diperbaharui.'],
                 ]);
         } catch (\Exception $e) {
@@ -108,6 +109,7 @@ class GuruDanTendikController extends Controller
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
+                    'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
         }
@@ -122,6 +124,7 @@ class GuruDanTendikController extends Controller
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
+                    'alert_icon' => 'mdi-check-circle-outline',
                     'alert_messages' => ['Data guru dan tendik berhasil dihapus.'],
                 ]);
         } catch (\Exception $e) {
@@ -129,6 +132,7 @@ class GuruDanTendikController extends Controller
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Gagal!',
+                    'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
         }
