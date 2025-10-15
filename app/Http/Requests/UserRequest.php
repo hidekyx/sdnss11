@@ -22,7 +22,7 @@ class UserRequest extends FormRequest
             'no_hp' => 'nullable|numeric',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'tempat_lahir' => 'nullable|string',
-            'tanggal_lahir' => 'nullable|date',
+            'tanggal_lahir_submit' => 'nullable|date',
             'alamat' => 'nullable|string',
         ];
 
@@ -84,7 +84,7 @@ class UserRequest extends FormRequest
             'nrk.numeric' => 'NRK harus berupa angka',
             'nrk.unique' => 'NRK telah terdaftar',
             'tempat_lahir.string' => 'Tempat lahir tidak valid',
-            'tanggal_lahir.date' => 'Tanggal lahir tidak valid',
+            'tanggal_lahir_submit.date' => 'Tanggal lahir tidak valid',
             'alamat.string' => 'Alamat tidak valid',
             'avatar.image' => 'Foto tidak valid',
             'avatar.mimes' => 'Format foto yang diupload harus sesuai (jpeg, png, jpg)',

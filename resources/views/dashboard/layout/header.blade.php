@@ -113,7 +113,7 @@
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                             <div class="header-info">
-                                <span>David Morse</span>
+                                <span>Afgan Halimi</span>
                                 <small>ADMIN</small>
                             </div>
                             <img src="images/profile/pic1.jpg" width="20" alt="">

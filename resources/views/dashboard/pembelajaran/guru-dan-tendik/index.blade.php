@@ -16,8 +16,18 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">{{ $detailMenu }} - {{ $subMenu }}</h4>
+                        <a href="{{ route('dashboard-pembelajaran-guru-dan-tendik-tambah') }}"><button type="button" class="btn btn-rounded btn-primary btn-xs">Tambah</button></a>
                     </div>
                     <div class="card-body">
+                        @if(session('alert_type'))
+                        <x-alert
+                            :title="session('alert_title')"
+                            :type="session('alert_type')"
+                            :icon="session('alert_icon')"
+                            :messages="session('alert_messages')"
+                            :display="'block'" />
+                        @endif
+                        
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
@@ -57,7 +67,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="#" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ route('dashboard-pembelajaran-guru-dan-tendik-edit', $u->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
                                                 <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>

@@ -26753,12 +26753,7 @@ svg text {
     height: 2.5em;
 }
 
-.picker__input {
-    background-color: transparent !important;
-}
-
 [data-theme-version="dark"] .picker__input {
-    background-color: transparent !important;
     border: 0.0625rem solid #251a2f;
 }
 

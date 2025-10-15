@@ -8,16 +8,17 @@ use Illuminate\Contracts\View\View;
 
 class Alert extends Component
 {
-
     public $type;
     public $title;
+    public $icon;
     public $messages;
     public $display;
     
-    public function __construct($type = '', $title = '', $messages = [], $display = '')
+    public function __construct($type = '', $title = '', $icon = '', $messages = [], $display = '')
     {
         $this->type = $type;
         $this->title = $title;
+        $this->icon = $icon;
         $this->messages = $messages;
         $this->display = $display;
     }

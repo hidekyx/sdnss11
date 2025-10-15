@@ -50,6 +50,7 @@ class GuruDanTendikController extends Controller
             }
 
             $data['password'] = bcrypt($data['password']);
+            $data['tanggal_lahir'] = $data['tanggal_lahir_submit'];
 
             User::create($data);
 
@@ -57,6 +58,7 @@ class GuruDanTendikController extends Controller
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
+                    'alert_icon' => 'mdi-check-circle-outline',
                     'alert_messages' => ['Data guru dan tendik berhasil disimpan.'],
                 ]);
         } catch (\Exception $e) {
@@ -64,6 +66,7 @@ class GuruDanTendikController extends Controller
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
+                    'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
         }
@@ -91,6 +94,7 @@ class GuruDanTendikController extends Controller
                 $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
             }
 
+            $data['tanggal_lahir'] = $data['tanggal_lahir_submit'];
             $user->update($data);
 
             return redirect()->route('dashboard-pembelajaran-guru-dan-tendik')
