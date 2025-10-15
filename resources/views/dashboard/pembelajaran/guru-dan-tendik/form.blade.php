@@ -32,7 +32,7 @@
                         @endif
 
                         <div class="basic-form">
-                            <form class="validate-form" id="create-user-form" action="{{ $detailMenu == 'Tambah' ? route('dashboard-pembelajaran-guru-dan-tendik-simpan') : route('dashboard-pembelajaran-guru-dan-tendik-perbaharui', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form class="validate-form" action="{{ $detailMenu == 'Tambah' ? route('dashboard-pembelajaran-guru-dan-tendik-simpan') : route('dashboard-pembelajaran-guru-dan-tendik-perbaharui', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 @if($detailMenu != 'Tambah')
@@ -114,7 +114,7 @@
                                                 <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="{{ $user->tempat_lahir ?? '' }}" required>
                                             </div>
                                             <div class="col-6">
-                                                <input name="tanggal_lahir" class="datepicker-default form-control" id="tanggal_lahir" placeholder="Tanggal Lahir" data-value="{{ $user->tanggal_lahir ? \Carbon\Carbon::parse($user->tanggal_lahir)->isoFormat('Y/MM/D') : '' }}" required>
+                                                <input name="tanggal_lahir" class="datepicker-default form-control" id="tanggal_lahir" placeholder="Tanggal Lahir" data-value="{{ isset($user) && $user->tanggal_lahir ? \Carbon\Carbon::parse($user->tanggal_lahir)->isoFormat('Y/MM/D') : '' }}" required>
                                             </div>
                                         </div>
                                     </div>

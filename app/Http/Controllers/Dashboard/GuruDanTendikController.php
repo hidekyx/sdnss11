@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Models\MenuDashboard;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -22,7 +21,6 @@ class GuruDanTendikController extends Controller
         $this->applyFilters($user, $request);
 
         $additionalData = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
             'user' => $user->paginate(25),
             'kategoriRole' => Role::get(),
         ];
@@ -33,7 +31,6 @@ class GuruDanTendikController extends Controller
     public function create(): View
     {
         $additionalData = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
             'kategoriRole' => Role::get(),
         ];
 
@@ -76,7 +73,6 @@ class GuruDanTendikController extends Controller
     {
         $user = User::findOrfail($id);
         $additionalData = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
             'user' => $user,
             'kategoriRole' => Role::get(),
         ];

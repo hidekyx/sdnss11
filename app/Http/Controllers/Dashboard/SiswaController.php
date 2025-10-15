@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SiswaRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\Kelas;
-use App\Models\MenuDashboard;
-use App\Models\Role;
 use App\Models\Siswa;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -24,7 +22,6 @@ class SiswaController extends Controller
         $this->applyFilters($siswa, $request);
 
         $additionalData = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
             'siswa' => $siswa->get(),
             'kelas' => Kelas::get(),
         ];
@@ -34,16 +31,11 @@ class SiswaController extends Controller
 
     public function create(): View
     {
-        $additionalData = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
-            'kategoriRole' => Role::get(),
-        ];
-
-        return $this->createView('Tambah', 'dashboard.pembelajaran.siswa.form', $additionalData);
+        return $this->createView('Tambah', 'dashboard.pembelajaran.siswa.form');
     }
 
-    public function store(UserRequest $request)
-    {
+    public function store(SiswaRequest $request)
+    {   
         try {
             $data = $request->validated();
 
@@ -51,14 +43,14 @@ class SiswaController extends Controller
                 $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
             }
 
-            $data['password'] = bcrypt($data['password']);
-
-            User::create($data);
+            $data['tanggal_lahir'] = $data['tanggal_lahir_submit'];
+            Siswa::create($data);
 
             return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
+                    'alert_icon' => 'mdi-check-circle-outline',
                     'alert_messages' => ['Data siswa berhasil disimpan.'],
                 ]);
         } catch (\Exception $e) {
@@ -66,6 +58,7 @@ class SiswaController extends Controller
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
+                    'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
         }
@@ -73,32 +66,32 @@ class SiswaController extends Controller
 
     public function edit($id): View
     {
-        $user = User::findOrfail($id);
+        $siswa = Siswa::findOrfail($id);
         $additionalData = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
-            'user' => $user,
-            'kategoriRole' => Role::get(),
+            'siswa' => $siswa,
         ];
 
         return $this->createView('Edit', 'dashboard.pembelajaran.siswa.form', $additionalData);
     }
 
-    public function update(UserRequest $request, $id)
+    public function update(SiswaRequest $request, $id)
     {
         try {
-            $user = User::findOrfail($id);
+            $siswa = Siswa::findOrfail($id);
             $data = $request->validated();
 
             if ($request->hasFile('avatar')) {
                 $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
             }
 
-            $user->update($data);
+            $data['tanggal_lahir'] = $data['tanggal_lahir_submit'];
+            $siswa->update($data);
 
             return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
+                    'alert_icon' => 'mdi-check-circle-outline',
                     'alert_messages' => ['Data siswa berhasil diperbaharui.'],
                 ]);
         } catch (\Exception $e) {
@@ -106,6 +99,7 @@ class SiswaController extends Controller
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
+                    'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
         }
@@ -114,12 +108,13 @@ class SiswaController extends Controller
     public function delete($id)
     {
         try {
-            $user = User::findOrFail($id);
-            $user->delete();
+            $siswa = Siswa::findOrFail($id);
+            $siswa->delete();
             return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
+                    'alert_icon' => 'mdi-check-circle-outline',
                     'alert_messages' => ['Data siswa berhasil dihapus.'],
                 ]);
         } catch (\Exception $e) {
@@ -127,6 +122,7 @@ class SiswaController extends Controller
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Gagal!',
+                    'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
         }

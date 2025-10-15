@@ -51,7 +51,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <span class="badge light badge-{{ $s->kelas->first()->color }}">{{ $s->kelas->first()->nama }}</span>
+                                            <span class="badge light badge-{{ $s->kelas->first()?->color }}">{{ $s->kelas->first()?->nama }}</span>
                                         </td>
                                         <td>
                                             <a href="#" class="fw-bold text-primary">{{ $s->nama }}</a>
@@ -68,7 +68,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a href="{{ route('dashboard-pembelajaran-siswa-edit', $s->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
-                                                <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $s->name }}" data-url="{{ route('dashboard-pembelajaran-siswa-hapus', $s->id) }}"><i class="fa fa-trash"></i></a>
+                                                <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $s->nama }}" data-url="{{ route('dashboard-pembelajaran-siswa-hapus', $s->id) }}"><i class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
