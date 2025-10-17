@@ -174,16 +174,16 @@
     <!-- Required vendors -->
     <script src="{{ asset('assets/dashboard/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('assets/dashboard/vendor/apexchart/apexchart.js') }}"></script>
+    <!-- <script src="{{ asset('assets/dashboard/vendor/apexchart/apexchart.js') }}"></script> -->
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.time.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.date.js') }}"></script>
 
     <!-- Dashboard 1 -->
-    <script src="{{ asset('assets/dashboard/js/dashboard/dashboard-1.js') }}"></script>
+    <!-- <script src="{{ asset('assets/dashboard/js/dashboard/dashboard-1.js') }}"></script> -->
+     <script src="{{ asset('assets/dashboard/js/dashboard/cms.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/custom.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/deznav-init.js') }}"></script>
-
     <script src="{{ asset('assets/dashboard/js/demo.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/styleSwitcher.js') }}"></script>
 

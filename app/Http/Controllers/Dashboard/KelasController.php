@@ -9,19 +9,19 @@ use App\Models\Siswa;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class SiswaController extends Controller
+class KelasController extends Controller
 {
     public $mainMenu    = "Pembelajaran";
-    public $subMenu     = "Siswa";
+    public $subMenu     = "Kelas";
 
     public function index(Request $request): View
     {
 
-        $siswa = Siswa::with('kelas')->orderBy('id');
+        $siswa = Siswa::with('kelas')->orderByDesc('id');
         $this->applyFilters($siswa, $request);
 
         $additionalData = [
-            'siswa' => $siswa->paginate(5),
+            'siswa' => $siswa->get(),
             'kelas' => Kelas::get(),
         ];
 
