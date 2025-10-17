@@ -70,11 +70,11 @@
 
                             <a href="{{ route('dashboard-pembelajaran-siswa-tambah') }}"><button type="button" class="btn btn-primary btn-sm mb-2"><i class="fa fa-plus me-1"></i>Tambah</button></a>
                             <div class="table-responsive">
-                                <table class="table table-responsive-md">
+                                <table class="table table-hover table-responsive-md">
                                     <thead>
                                         <tr>
                                             <th>FOTO</th>
-                                            <th>KELAS AKTIF</th>
+                                            <th>KELAS</th>
                                             <th>NAMA/NIPD/NISN/NIK</th>
                                             <th>TTL/JK/AGAMA</th>
                                             <th>HP/ALAMAT</th>
@@ -92,7 +92,23 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <span class="badge light badge-{{ $s->kelas->first()?->color }}">{{ $s->kelas->first()?->nama }}</span>
+                                                
+                                                <div class="bootstrap-popover">
+                                                    <span 
+                                                        class="badge light badge-{{ $s->kelas->first()?->color }}" 
+                                                        data-bs-container="body" 
+                                                        data-bs-toggle="popover" 
+                                                        data-bs-placement="right" 
+                                                        data-bs-html="true"
+                                                        data-bs-content="
+                                                            @foreach($s->kelasSiswa as $ks) 
+                                                                <p class='mb-0'>Tahun {{ $ks->tahun_ajaran }}: {{ $ks->kelas->nama }}</p>
+                                                            @endforeach
+                                                        " 
+                                                        title="Riwayat Kelas">
+                                                        {{ $s->kelas->first()?->nama }}
+                                                    </span>
+                                                </div>
                                             </td>
                                             <td>
                                                 <a href="#" class="fw-bold text-primary">{{ $s->nama }}</a>
