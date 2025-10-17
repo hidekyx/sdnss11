@@ -13,8 +13,6 @@ class MataPelajaran extends Model
 
     protected $fillable = [
         'nama',
-        'tingkat_min',
-        'tingkat_max',
     ];
 
     public function guru()

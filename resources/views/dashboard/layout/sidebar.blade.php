@@ -7,14 +7,8 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('dashboard-pembelajaran-guru-dan-tendik') }}">Guru dan Tendik</a></li>
-                    <li><a href="#">Kelas</a></li>
+                    <li><a href="{{ route('dashboard-pembelajaran-kelas') }}">Kelas</a></li>
                     <li><a href="{{ route('dashboard-pembelajaran-siswa') }}">Siswa</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ route('dashboard-pembelajaran-guru-dan-tendik') }}">Error 400</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="page-lock-screen.html">Lock Screen</a></li>
                 </ul>
             </li>
         </ul>

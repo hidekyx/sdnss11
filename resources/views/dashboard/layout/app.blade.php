@@ -29,6 +29,7 @@
     <link href="{{ asset('assets/dashboard/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/vendor/pickdate/themes/default.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/vendor/pickdate/themes/default.date.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/dashboard/vendor/select2/css/select2.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/dashboard/css/style.css') }}" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
@@ -178,10 +179,11 @@
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.time.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.date.js') }}"></script>
+    <script src="{{ asset('assets/dashboard/vendor/select2/js/select2.full.min.js') }}"></script>
 
     <!-- Dashboard 1 -->
     <!-- <script src="{{ asset('assets/dashboard/js/dashboard/dashboard-1.js') }}"></script> -->
-     <script src="{{ asset('assets/dashboard/js/dashboard/cms.js') }}"></script>
+    <script src="{{ asset('assets/dashboard/js/dashboard/cms.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/custom.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/demo.js') }}"></script>

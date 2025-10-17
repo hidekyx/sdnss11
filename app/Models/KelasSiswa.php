@@ -14,9 +14,7 @@ class KelasSiswa extends Model
     protected $fillable = [
         'kelas_id',
         'siswa_id',
-        'tahun_ajaran',
-        'tanggal_mulai',
-        'tanggal_selesai',
+        'tahun_ajaran_id',
         'status',
     ];
 

@@ -25,8 +25,6 @@ Route::put('/pembelajaran/siswa/perbaharui/{id}', [SiswaController::class, 'upda
 Route::delete('/pembelajaran/siswa/hapus/{id}', [SiswaController::class, 'delete'])->name('dashboard-pembelajaran-siswa-hapus');
 
 Route::get('/pembelajaran/kelas', [KelasController::class, 'index'])->name('dashboard-pembelajaran-kelas');
-Route::get('/pembelajaran/kelas/tambah', [KelasController::class, 'create'])->name('dashboard-pembelajaran-kelas-tambah');
-Route::post('/pembelajaran/kelas/simpan', [KelasController::class, 'store'])->name('dashboard-pembelajaran-kelas-simpan');
-Route::get('/pembelajaran/kelas/edit/{id}', [KelasController::class, 'edit'])->name('dashboard-pembelajaran-kelas-edit');
-Route::put('/pembelajaran/kelas/perbaharui/{id}', [KelasController::class, 'update'])->name('dashboard-pembelajaran-kelas-perbaharui');
-Route::delete('/pembelajaran/kelas/hapus/{id}', [KelasController::class, 'delete'])->name('dashboard-pembelajaran-kelas-hapus');
+Route::get('/pembelajaran/kelas/pengaturan/{id}', [KelasController::class, 'tahunAjaran'])->name('dashboard-pembelajaran-kelas-tahun-ajaran');
+Route::get('/pembelajaran/kelas/pengaturan/{idKelas}/{idTahunAjaran}', [KelasController::class, 'setting'])->name('dashboard-pembelajaran-kelas-tahun-ajaran-pengaturan');
+Route::get('/pembelajaran/kelas/perbaharui/{idKelas}/{idTahunAjaran}', [KelasController::class, 'perbaharui'])->name('dashboard-pembelajaran-kelas-tahun-ajaran-perbaharui');

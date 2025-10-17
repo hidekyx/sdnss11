@@ -14,9 +14,7 @@ class KelasGuru extends Model
     protected $fillable = [
         'kelas_id',
         'guru_id',
-        'tahun_ajaran',
-        'tanggal_mulai',
-        'tanggal_selesai',
+        'tahun_ajaran_id',
         'status',
         'keterangan',
     ];

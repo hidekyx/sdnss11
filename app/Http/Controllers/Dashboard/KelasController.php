@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SiswaRequest;
 use App\Models\Kelas;
+use App\Models\KelasGuru;
+use App\Models\KelasSiswa;
 use App\Models\Siswa;
+use App\Models\TahunAjaran;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -17,110 +20,67 @@ class KelasController extends Controller
     public function index(Request $request): View
     {
 
-        $siswa = Siswa::with('kelas')->orderByDesc('id');
-        $this->applyFilters($siswa, $request);
+        $kelas = Kelas::orderBy('id');
+        $this->applyFilters($kelas, $request);
 
         $additionalData = [
-            'siswa' => $siswa->get(),
-            'kelas' => Kelas::get(),
+            'kelas' => $kelas->get(),
         ];
 
-        return $this->createView('List', 'dashboard.pembelajaran.siswa.index', $additionalData);
+        return $this->createView('List', 'dashboard.pembelajaran.kelas.index', $additionalData);
     }
 
-    public function create(): View
+    public function tahunAjaran($id): View
     {
-        return $this->createView('Tambah', 'dashboard.pembelajaran.siswa.form');
-    }
-
-    public function store(SiswaRequest $request)
-    {   
-        try {
-            $data = $request->validated();
-
-            if ($request->hasFile('avatar')) {
-                $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
-            }
-
-            $data['tanggal_lahir'] = $data['tanggal_lahir_submit'];
-            Siswa::create($data);
-
-            return redirect()->route('dashboard-pembelajaran-siswa')
-                ->with([
-                    'alert_type' => 'success',
-                    'alert_title' => 'Berhasil!',
-                    'alert_icon' => 'mdi-check-circle-outline',
-                    'alert_messages' => ['Data siswa berhasil disimpan.'],
-                ]);
-        } catch (\Exception $e) {
-            return back()
-                ->with([
-                    'alert_type' => 'danger',
-                    'alert_title' => 'Validasi Gagal!',
-                    'alert_icon' => 'mdi-alert',
-                    'alert_messages' => [$e],
-                ]);
-        }
-    }
-
-    public function edit($id): View
-    {
-        $siswa = Siswa::findOrfail($id);
+        $kelas = Kelas::findOrfail($id);
+        $tahunAjaran = TahunAjaran::orderByDesc('id')->get();
         $additionalData = [
+            'kelas' => $kelas,
+            'tahunAjaran' => $tahunAjaran,
+        ];
+
+        return $this->createView('Tahun Ajaran', 'dashboard.pembelajaran.kelas.tahun-ajaran', $additionalData);
+    }
+
+    public function setting($kelasId, $tahunAjaranId): View
+    {
+        $kelas = Kelas::findOrfail($kelasId);
+        $tahunAjaran = TahunAjaran::findOrfail($tahunAjaranId);
+        $kelasSiswa = KelasSiswa::where('kelas_id', $kelasId)->where('tahun_ajaran_id', $tahunAjaranId)->get();
+        $kelasGuru = KelasGuru::where('kelas_id', $kelasId)->where('tahun_ajaran_id', $tahunAjaranId)->first();
+        $waliKelas = User::where('role_id', 4)->get();
+        $guruPelajaran = User::where('role_id', 5)->get();
+        $siswa = Siswa::get();
+        $additionalData = [
+            'kelas' => $kelas,
+            'tahunAjaran' => $tahunAjaran,
+            'kelasSiswa' => $kelasSiswa,
+            'kelasGuru' => $kelasGuru,
+            'waliKelas' => $waliKelas,
+            'guruPelajaran' => $guruPelajaran,
             'siswa' => $siswa,
         ];
 
-        return $this->createView('Edit', 'dashboard.pembelajaran.siswa.form', $additionalData);
+        return $this->createView('Pengaturan', 'dashboard.pembelajaran.kelas.setting', $additionalData);
     }
 
-    public function update(SiswaRequest $request, $id)
+    public function perbaharui($request, $id)
     {
         try {
-            $siswa = Siswa::findOrfail($id);
-            $data = $request->validated();
-
-            if ($request->hasFile('avatar')) {
-                $data['avatar'] = storeFile($request->file('avatar'), 'images/avatar');
-            }
-
-            $data['tanggal_lahir'] = $data['tanggal_lahir_submit'];
-            $siswa->update($data);
+            
 
             return redirect()->route('dashboard-pembelajaran-siswa')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
                     'alert_icon' => 'mdi-check-circle-outline',
-                    'alert_messages' => ['Data siswa berhasil diperbaharui.'],
+                    'alert_messages' => ['Data kelas berhasil diperbaharui.'],
                 ]);
         } catch (\Exception $e) {
             return back()
                 ->with([
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
-                    'alert_icon' => 'mdi-alert',
-                    'alert_messages' => [$e],
-                ]);
-        }
-    }
-
-    public function delete($id)
-    {
-        try {
-            $siswa = Siswa::findOrFail($id);
-            $siswa->delete();
-            return redirect()->route('dashboard-pembelajaran-siswa')
-                ->with([
-                    'alert_type' => 'success',
-                    'alert_title' => 'Berhasil!',
-                    'alert_icon' => 'mdi-check-circle-outline',
-                    'alert_messages' => ['Data siswa berhasil dihapus.'],
-                ]);
-        } catch (\Exception $e) {
-            return back()
-                ->with([
-                    'alert_type' => 'danger',
-                    'alert_title' => 'Gagal!',
                     'alert_icon' => 'mdi-alert',
                     'alert_messages' => [$e],
                 ]);
