@@ -27,4 +27,9 @@ class KelasSiswa extends Model
     {
         return $this->belongsTo(Siswa::class, 'siswa_id');
     }
+
+    public function tahun_ajaran()
+    {
+        return $this->belongsTo(TahunAjaran::class, 'tahun_ajaran_id');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BeritaController;
 use App\Http\Controllers\Dashboard\GuruDanTendikController;
 use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
 use App\Http\Controllers\Dashboard\KelasController;
@@ -28,3 +29,10 @@ Route::get('/pembelajaran/kelas', [KelasController::class, 'index'])->name('dash
 Route::get('/pembelajaran/kelas/pengaturan/{id}', [KelasController::class, 'tahunAjaran'])->name('dashboard-pembelajaran-kelas-tahun-ajaran');
 Route::get('/pembelajaran/kelas/pengaturan/{idKelas}/{idTahunAjaran}', [KelasController::class, 'setting'])->name('dashboard-pembelajaran-kelas-tahun-ajaran-pengaturan');
 Route::get('/pembelajaran/kelas/perbaharui/{idKelas}/{idTahunAjaran}', [KelasController::class, 'perbaharui'])->name('dashboard-pembelajaran-kelas-tahun-ajaran-perbaharui');
+
+Route::get('/publikasi/berita', [BeritaController::class, 'index'])->name('dashboard-publikasi-berita');
+Route::get('/publikasi/berita/tambah', [BeritaController::class, 'create'])->name('dashboard-publikasi-berita-tambah');
+Route::post('/publikasi/berita/simpan', [BeritaController::class, 'store'])->name('dashboard-publikasi-berita-simpan');
+Route::get('/publikasi/berita/edit/{id}', [BeritaController::class, 'edit'])->name('dashboard-publikasi-berita-edit');
+Route::put('/publikasi/berita/perbaharui/{id}', [BeritaController::class, 'update'])->name('dashboard-publikasi-berita-perbaharui');
+Route::delete('/publikasi/berita/hapus/{id}', [BeritaController::class, 'delete'])->name('dashboard-publikasi-berita-hapus');

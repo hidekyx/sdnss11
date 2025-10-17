@@ -34,7 +34,8 @@
                                     <a href="#" class="">Profil</a>
                                     <ul class="submenu">
                                         <li><a href="#">Tentang Sekolah</a></li>
-                                        <li><a href="#">Karyawan & Guru</a></li>
+                                        <li><a href="#">Guru & Tendik</a></li>
+                                        <li><a href="#">Sarana dan Prasarana</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-has-child">
@@ -57,8 +58,8 @@
                                     <a href="#" class="">Publikasi</a>
                                     <ul class="submenu">
                                         <li><a href="#">Berita</a></li>
-                                        <li><a href="#">Galeri</a></li>
                                         <li><a href="#">Agenda</a></li>
+                                        <li><a href="#">Prestasi</a></li>
                                     </ul>
                                 </li>
                             </ul>
