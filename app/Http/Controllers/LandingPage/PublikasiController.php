@@ -21,23 +21,27 @@ class PublikasiController extends Controller
 
         $additionalData = [
             'berita' => $berita->paginate(1),
-            'beritaTerbaru' => $berita->limit(3)->get(),
+            'beritaTerbaru' => Berita::limit(3)->get(),
             'kategoriBerita' => Berita::latestWithTotal()->get(),
         ];
 
         return $this->createView('Berita', 'landing-page.publikasi.berita-list', $additionalData);
     }
 
-    public function beritaDetail($id): View
+    public function beritaDetail(Request $request, $slug): View
     {
-        $berita = Berita::findOrfail($id);
+        $this->subMenu = "Berita";
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        $berita->increment('viewed');
+        $this->applyFilters($berita, $request);
 
-        $view = [
+        $additionalData = [
             'berita' => $berita,
-            'kategoriBerita' => PublikasiKategori::listKategori(),
+            'beritaTerbaru' => Berita::limit(3)->get(),
+            'kategoriBerita' => Berita::latestWithTotal()->get(),
         ];
 
-        return view('landing-page.publikasi.berita-detail')->with($view);
+        return $this->createView('Berita', 'landing-page.publikasi.berita-detail', $additionalData);
     }
 
     private function applyFilters($query, Request $request): void

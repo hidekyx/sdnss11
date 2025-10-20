@@ -71,44 +71,7 @@
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">
-                <div class="ns-blog-details-widget-wrap mb-50">
-                    <div class="ns-blog-details-widget-search mb-50">
-                        <form action="#">
-                            <input type="text" placeholder="Cari Judul Berita">
-                            <button class="ns-blog-search-btn"><i class="icofont-search-2"></i></button>
-                        </form>
-                    </div>
-                    <div class="ns-blog-details-widget mb-50">
-                        <h5 class="ns-blog-details-widget-title">Berita Terbaru</h5>
-                        @foreach($beritaTerbaru as $bt)
-                        <div class="ns-blog-details-widget-post">
-                            <div class="ns-blog-details-post-img">
-                                <a href="{{ route('berita-detail', $bt->slug) }}"><img src="{{ asset('storage/images/berita/'.$bt->img) }}" alt="Foto Berita Terbaru"></a>
-                            </div>
-                            <div class="ns-blog-details-post-content">
-                                <span><i class="icofont-calendar"></i>{{ $bt->published_at ? \Carbon\Carbon::parse($bt->published_at)->isoFormat('D MMMM Y') : '-' }}</span>
-                                <h5 class="ns-blog-details-post-content-title"><a href="{{ route('berita-detail', $bt->slug) }}">{{ $bt->title }}</a></h5>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    <div class="ns-blog-details-widget mb-50">
-                        <h5 class="ns-blog-details-widget-title">Kategori</h5>
-                        <div class="ns-blog-details-widget-category">
-                            <ul class="ns-blog-details-category-list">
-                                @foreach($kategoriBerita as $kb)
-                                <li><a href="{{ route(str_replace(' ', '-', strtolower('Berita-List')), array_merge(request()->query(), ['kategori' => $kb->kategori])) }}">{{ $kb->kategori->text() }} <span>({{ $kb->total }})</span></a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ns-blog-details-widget ns-tag">
-                        <h5 class="ns-blog-details-widget-title">Tag</h5>
-                        <div class="ns-blog-details-tag">
-                            <a href="blog.html">New</a>
-                        </div>
-                    </div>
-                </div>
+                @include('landing-page.publikasi.berita-sidebar')
             </div>
         </div>
     </div>
