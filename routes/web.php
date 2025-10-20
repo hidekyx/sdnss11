@@ -6,9 +6,13 @@ use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
 use App\Http\Controllers\Dashboard\KelasController;
 use App\Http\Controllers\Dashboard\SiswaController;
 use App\Http\Controllers\LandingPage\HomeController as LandingPageHomeController;
+use App\Http\Controllers\LandingPage\PublikasiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageHomeController::class, 'index'])->name('beranda');
+Route::get('/berita', [PublikasiController::class, 'beritaList'])->name('berita-list');
+Route::get('/berita/{slug}', [PublikasiController::class, 'beritaDetail'])->name('berita-detail');
+
 Route::get('/dashboard', [DashboardHomeController::class, 'index'])->name('dashboard');
 
 Route::get('/pembelajaran/guru-dan-tendik', [GuruDanTendikController::class, 'index'])->name('dashboard-pembelajaran-guru-dan-tendik');
