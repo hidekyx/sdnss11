@@ -6,7 +6,8 @@
         <div class="row page-titles">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">{{ $mainMenu }}</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">{{ $subMenu }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard-publikasi-berita') }}">{{ $subMenu }}</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">{{ $detailMenu }}</a></li>
             </ol>
         </div>
         <!-- row -->
@@ -95,7 +96,7 @@
                                             <div class="col-3">
                                                 <select id="quote_by" name="quote_by" data-placeholder="Pilih Kutipan Dari" class="default-select form-control wide" required>
                                                     @foreach ($user as $u)
-                                                    <option value="{{ $u->id }}" {{ isset($berita) && $berita->quote_by->id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
+                                                    <option value="{{ $u->id }}" {{ isset($berita) && isset($berita->quote_by) && $berita->quote_by->id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

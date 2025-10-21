@@ -51,5 +51,12 @@ class MenuDashboardSeeder extends Seeder
                 'icon' => null,
                 'route' => 'dashboard-publikasi-berita',
             ]);
+
+            MenuDashboard::create([
+                'parent_id' => $publikasi->id,
+                'name' => 'Agenda',
+                'icon' => null,
+                'route' => 'dashboard-publikasi-agenda',
+            ]);
     }
 }

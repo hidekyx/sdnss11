@@ -84,9 +84,7 @@
                                         <tr>
                                             <td>
                                                 @if($b->img && Storage::disk('public')->exists('images/berita/' . $b->img))
-                                                <img src="{{ asset('storage/images/berita/'.$b->img) }}" class="rounded-lg me-2" width="24" alt="Foto Berita">
-                                                @else
-                                                <img src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" class="rounded-lg me-2" width="24" alt="Foto Berita">
+                                                    <img src="{{ asset('storage/images/berita/'.$b->img) }}" class="rounded-lg me-2" width="100" alt="Foto Berita">
                                                 @endif
                                             </td>
                                             <td>
@@ -104,7 +102,9 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex">
+                                                    @if($b->published_at < \Carbon\Carbon::now() && $b->is_published == App\Enums\PublikasiStatus::Published)
                                                     <a href="{{ route('berita-detail', $b->slug) }}" target="_blank" class="btn btn-info shadow btn-xs sharp me-1"><i class="fa fa-eye"></i></a>
+                                                    @endif
                                                     <a href="{{ route('dashboard-publikasi-berita-edit', $b->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
                                                     <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $b->title }}" data-url="{{ route('dashboard-publikasi-berita-hapus', $b->id) }}"><i class="fa fa-trash"></i></a>
                                                 </div>

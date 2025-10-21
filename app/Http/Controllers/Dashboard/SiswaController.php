@@ -21,7 +21,7 @@ class SiswaController extends Controller
         $this->applyFilters($siswa, $request);
 
         $additionalData = [
-            'siswa' => $siswa->paginate(5),
+            'siswa' => $siswa->paginate(50),
             'kelas' => Kelas::get(),
         ];
 

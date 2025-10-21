@@ -9,7 +9,7 @@
                 </a>
                 <ul>
                     @foreach($m->children as $c)
-                    <li class="{{ $subMenu == $c->name ? 'mm-active' : '' }}"><a class="{{ $subMenu == $c->name ? 'mm-active' : '' }}" href="{{ route($c->route) }}">{{ $c->name }}</a></li>
+                    <li class="{{ $subMenu == $c->name ? 'mm-active' : '' }}"><a class="{{ $subMenu == $c->name ? 'mm-active' : '' }}" href="{{ Route::has($c->route) ? route($c->route) : '#' }}">{{ $c->name }}</a></li>
                     @endforeach
                 </ul>
             </li>
