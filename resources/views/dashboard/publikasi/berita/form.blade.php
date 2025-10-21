@@ -65,7 +65,7 @@
                                     <label class="col-sm-3 col-form-label">Status Publikasi</label>
                                     <div class="col-sm-9">
                                         <div class="form-check custom-checkbox">
-                                            <input id="is_published" type="checkbox" class="form-check-input" {{ isset($berita) && $berita->is_published->value == 1 ? 'checked' : '' }}>
+                                            <input name="is_published" id="is_published" type="checkbox" class="form-check-input" {{ isset($berita) && $berita->is_published->value == 1 ? 'checked' : '' }}>
                                             <label class="form-check-label" for="is_published">Publikasikan</label>
                                         </div>
                                     </div>

@@ -25,7 +25,7 @@
             </li>
         </ul>
         <div class="copyright">
-            <p><strong>SDN Srengseng Sawah 11</strong> © 2025 All Rights Reserved</p>
+            <p><strong>SDN Srengseng Sawah 11</strong> <br>© 2025 Developed by HideKy</p>
         </div>
     </div>
 </div>

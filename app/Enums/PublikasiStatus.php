@@ -11,22 +11,15 @@ enum PublikasiStatus: int implements EnumText
 
     public function text(): string {
         return match($this) {
-            self::Published                 => 'Published',
-            self::Unpublished               => 'Unpublished',
-        };
-    }
-
-    public function icon(): string {
-        return match($this) {
-            self::Published                 => '<i class="material-icons">&#xe5ca;</i>',
-            self::Unpublished               => '<i class="material-icons">&#xe5cd;</i>',
+            self::Published                 => 'Sudah Publikasi',
+            self::Unpublished               => 'Belum Publikasi',
         };
     }
 
     public function color(): string {
         return match($this) {
-            self::Published                 => 'success',
-            self::Unpublished               => 'danger',
+            self::Published                 => 'green',
+            self::Unpublished               => 'red',
         };
     }
 }

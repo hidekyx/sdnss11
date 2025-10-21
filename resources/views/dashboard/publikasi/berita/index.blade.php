@@ -93,6 +93,7 @@
                                             </td>
                                             <td>
                                                 <div class="fw-bold">{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y') : '-' }}</div>
+                                                <div class="text-sm text-{{ $b->is_published->color() }}">{{ $b->is_published->text() }}</div>
                                             </td>
                                             <td>
                                                 <div class="d-flex">

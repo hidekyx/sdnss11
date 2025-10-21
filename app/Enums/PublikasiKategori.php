@@ -23,9 +23,9 @@ enum PublikasiKategori: int implements EnumText
     public function color(): string {
         return match($this) {
             self::Pengumuman => 'cyan',
-            self::Perlombaan => 'cyan',
-            self::Kegiatan => 'cyan',
-            self::Umum => 'cyan',
+            self::Perlombaan => 'orange',
+            self::Kegiatan => 'pink',
+            self::Umum => 'teal',
         };
     }
 

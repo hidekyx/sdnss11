@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\LandingPage;
 
-use App\Enums\PublikasiKategori;
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
 use Illuminate\Contracts\View\View;
@@ -21,8 +20,8 @@ class PublikasiController extends Controller
 
         $additionalData = [
             'berita' => $berita->paginate(1),
-            'beritaTerbaru' => Berita::limit(3)->get(),
-            'kategoriBerita' => Berita::latestWithTotal()->get(),
+            'beritaTerbaru' => Berita::published()->limit(3)->get(),
+            'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
 
         return $this->createView('Berita', 'landing-page.publikasi.berita-list', $additionalData);
@@ -38,7 +37,7 @@ class PublikasiController extends Controller
         $additionalData = [
             'berita' => $berita,
             'beritaTerbaru' => Berita::limit(3)->get(),
-            'kategoriBerita' => Berita::latestWithTotal()->get(),
+            'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
 
         return $this->createView('Berita', 'landing-page.publikasi.berita-detail', $additionalData);

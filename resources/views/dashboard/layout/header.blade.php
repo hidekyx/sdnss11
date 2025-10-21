@@ -24,10 +24,10 @@
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                             <div class="header-info">
-                                <span>Afgan Halimi</span>
-                                <small>ADMIN</small>
+                                <span>{{ Auth::user()->name }}</span>
+                                <small>{{ Auth::user()->role->name }}</small>
                             </div>
-                            <img src="{{ asset('assets/dashboard/images/profile-default.png') }}" width="20" alt="">
+                            <img src="{{ asset('assets/dashboard/images/profile-default.png') }}" width="20">
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="#" class="dropdown-item ai-icon">

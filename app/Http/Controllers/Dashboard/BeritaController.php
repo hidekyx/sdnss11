@@ -20,7 +20,6 @@ class BeritaController extends Controller
 
     public function index(Request $request): View
     {
-
         $berita = Berita::orderBy('id');
         $this->applyFilters($berita, $request);
 
@@ -61,6 +60,12 @@ class BeritaController extends Controller
                 }
             }
 
+            if (isset($data['is_published']) && $data['is_published'] == "on") {
+                $data['is_published'] = PublikasiStatus::Published;
+            } else {
+                $data['is_published'] = PublikasiStatus::Unpublished;
+            }
+
             $berita = new Berita($data);
             if ($request->has('tags')) {
                 $berita->tags = implode(', ', $berita->tags);
@@ -69,12 +74,6 @@ class BeritaController extends Controller
             $berita->published_at = $data['published_at_submit'];
             $berita->slug = Str::slug(Str::limit($berita->title, 200, ''));
             $berita->writer_id = Auth::id();
-
-            if (isset($data['is_published']) && $data['is_published'] == "on") {
-                $data['is_published'] = PublikasiStatus::Published;
-            } else {
-                $data['is_published'] = PublikasiStatus::Unpublished;
-            }
 
             $berita->save();
 
