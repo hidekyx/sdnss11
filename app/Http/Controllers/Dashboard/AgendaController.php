@@ -2,66 +2,46 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Enums\PublikasiKategori;
 use App\Enums\PublikasiStatus;
 use App\Enums\Role;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BeritaRequest;
-use App\Models\Berita;
-use App\Models\Tag;
+use App\Http\Requests\AgendaRequest;
+use App\Models\Agenda;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class AgendaController extends Controller
 {
     public $mainMenu    = "Publikasi";
-    public $subMenu     = "Berita";
+    public $subMenu     = "Agenda";
 
     public function index(Request $request): View
     {
-        $berita = Berita::orderBy('id');
-        $this->applyFilters($berita, $request);
+        $agenda = Agenda::orderBy('id');
+        $this->applyFilters($agenda, $request);
 
         $additionalData = [
-            'berita' => $berita->paginate(25),
-            'kategoriBerita' => PublikasiKategori::listKategori(),
+            'agenda' => $agenda->paginate(25),
+            'penanggungJawab' => User::where('role_id', '!=', Role::Admin)->get(),
         ];
 
-        return $this->createView('List', 'dashboard.publikasi.berita.index', $additionalData);
+        return $this->createView('List', 'dashboard.publikasi.agenda.index', $additionalData);
     }
 
     public function create(): View
     {
         $additionalData = [
-            'kategoriBerita' => PublikasiKategori::listKategori(),
-            'tags' => Tag::orderBy('title')->get(),
-            'user' => User::where('role_id', '!=', Role::Admin)->get(),
+            'penanggungJawab' => User::where('role_id', '!=', Role::Admin)->get(),
         ];
 
-        return $this->createView('Tambah', 'dashboard.publikasi.berita.form', $additionalData);
+        return $this->createView('Tambah', 'dashboard.publikasi.agenda.form', $additionalData);
     }
 
-    public function store(BeritaRequest $request)
+    public function store(AgendaRequest $request)
     {
         try {
             $data = $request->validated();
-
-            $imageKeys = ['img', 'img_2', 'img_3', 'img_4'];
-            foreach ($imageKeys as $key) {
-                if ($request->hasFile($key)) {
-                    $data[$key] = storeFile($request->file($key), 'images/berita');
-
-                    if ($request->hasFile('img') && $key == 'img') {
-                        $file = $request->file('img');
-                        $path = 'public/images/berita/thumbnail';
-                        $filename = createThumbnail($file, $path);
-                        $data['thumbnail'] = $filename;
-                    }
-                }
-            }
 
             if (isset($data['is_published']) && $data['is_published'] == "on") {
                 $data['is_published'] = PublikasiStatus::Published;
@@ -69,23 +49,17 @@ class AgendaController extends Controller
                 $data['is_published'] = PublikasiStatus::Unpublished;
             }
 
-            $berita = new Berita($data);
-            if ($request->has('tags')) {
-                $berita->tags = implode(', ', $berita->tags);
-            }
+            $agenda = new Agenda($data);
+            $agenda->time = $data['time_1'] .' - '. $data['time_2'];
+            $agenda->published_at = $data['published_at_submit'];
+            $agenda->save();
 
-            $berita->published_at = $data['published_at_submit'];
-            $berita->slug = Str::slug(Str::limit($berita->title, 200, ''));
-            $berita->writer_id = Auth::id();
-
-            $berita->save();
-
-            return redirect()->route('dashboard-publikasi-berita')
+            return redirect()->route('dashboard-publikasi-agenda')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
                     'alert_icon' => 'mdi-check-circle-outline',
-                    'alert_messages' => ['Data berita berhasil disimpan.'],
+                    'alert_messages' => ['Data agenda berhasil disimpan.'],
                 ]);
         } catch (\Exception $e) {
             return back()
@@ -100,38 +74,22 @@ class AgendaController extends Controller
 
     public function edit($id): View
     {
-        $berita = Berita::findOrfail($id);
+        $agenda = Agenda::findOrfail($id);
+        $agenda->time = explode(' - ', $agenda->time);
         $additionalData = [
-            'berita' => $berita,
-            'kategoriBerita' => PublikasiKategori::listKategori(),
-            'tags' => Tag::orderBy('title')->get(),
-            'user' => User::where('role_id', '!=', Role::Admin)->get(),
+            'agenda' => $agenda,
+            'penanggungJawab' => User::where('role_id', '!=', Role::Admin)->get(),
         ];
 
-        return $this->createView('Edit', 'dashboard.publikasi.berita.form', $additionalData);
+        return $this->createView('Edit', 'dashboard.publikasi.agenda.form', $additionalData);
     }
 
-    public function update(BeritaRequest $request, $id)
+    public function update(AgendaRequest $request, $id)
     {
         try {
-            $berita = Berita::findOrfail($id);
+            $agenda = Agenda::findOrfail($id);
 
             $data = $request->validated();
-
-            $imageKeys = ['img', 'img_2', 'img_3', 'img_4'];
-            foreach ($imageKeys as $index => $key) {
-                if ($request->hasFile($key)) {
-                    $data[$key] = storeFile($request->file($key), 'images/berita');
-                }
-            }
-
-            if ($request->has('tags')) {
-                $data['tags'] = implode(', ', $data['tags']);
-            } else {
-                $data['tags'] = null;
-            }
-
-            $data['slug'] = Str::slug(Str::limit($data['title'], 200, ''));
             $data['published_at'] = $data['published_at_submit'];
 
             if (isset($data['is_published']) && $data['is_published'] == "on") {
@@ -140,14 +98,15 @@ class AgendaController extends Controller
                 $data['is_published'] = PublikasiStatus::Unpublished;
             }
 
-            $berita->update($data);
+            $agenda->time = $data['time_1'] .' - '. $data['time_2'];
+            $agenda->update($data);
 
-            return redirect()->route('dashboard-publikasi-berita')
+            return redirect()->route('dashboard-publikasi-agenda')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
                     'alert_icon' => 'mdi-check-circle-outline',
-                    'alert_messages' => ['Data berita berhasil diperbaharui.'],
+                    'alert_messages' => ['Data agenda berhasil diperbaharui.'],
                 ]);
         } catch (\Exception $e) {
             return back()
@@ -163,14 +122,14 @@ class AgendaController extends Controller
     public function delete($id)
     {
         try {
-            $berita = Berita::findOrFail($id);
-            $berita->delete();
-            return redirect()->route('dashboard-publikasi-berita')
+            $agenda = Agenda::findOrFail($id);
+            $agenda->delete();
+            return redirect()->route('dashboard-publikasi-agenda')
                 ->with([
                     'alert_type' => 'success',
                     'alert_title' => 'Berhasil!',
                     'alert_icon' => 'mdi-check-circle-outline',
-                    'alert_messages' => ['Data berita berhasil dihapus.'],
+                    'alert_messages' => ['Data agenda berhasil dihapus.'],
                 ]);
         } catch (\Exception $e) {
             return back()
