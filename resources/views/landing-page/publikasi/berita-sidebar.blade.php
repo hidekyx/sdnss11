@@ -24,7 +24,7 @@
         <div class="ns-blog-details-widget-category">
             <ul class="ns-blog-details-category-list">
                 @foreach($kategoriBerita as $kb)
-                <li><a href="{{ route(str_replace(' ', '-', strtolower('Berita-List')), array_merge(request()->query(), ['kategori' => $kb->kategori])) }}">{{ $kb->kategori->text() }} <span>({{ $kb->total }})</span></a></li>
+                <li><a href="{{ route('berita-list', array_merge(request()->query(), ['kategori' => $kb->kategori])) }}">{{ $kb->kategori->text() }} <span>({{ $kb->total }})</span></a></li>
                 @endforeach
             </ul>
         </div>
@@ -32,7 +32,9 @@
     <div class="ns-blog-details-widget ns-tag">
         <h5 class="ns-blog-details-widget-title">Tag Terpopuler</h5>
         <div class="ns-blog-details-tag">
-            <a href="blog.html">New</a>
+            @foreach ($beritaPenanda as $key => $bp)
+            <a href="{{ route('berita-list', array_merge(request()->query(), ['tag' => strtolower($key)])) }}">{{ $key }}</a>
+            @endforeach
         </div>
     </div>
 </div>

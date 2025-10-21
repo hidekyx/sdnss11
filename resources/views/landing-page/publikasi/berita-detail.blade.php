@@ -15,6 +15,7 @@
                         <h2 class="ns-blog-details-title mb-20">{{ $berita->title }}</h2>
                         {!! $berita->content !!}
                     </div>
+
                     <div class="ns-blog-details-client-review">
                         <h5 class="ns-client-review-title">Kutipan:</h5>
                         <blockquote class="ns-blog-detials-quote">
@@ -26,7 +27,8 @@
                             <span class="ns-quote-icon"><i class="icofont-quote-left"></i></span>
                         </blockquote>
                     </div>
-                    <div class="row">
+
+                    <div class="row mb-4">
                         @if($berita->img_2)
                         <div class="col-lg">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_2) }}" alt="Foto Berita">
@@ -46,7 +48,13 @@
                         @endif
                     </div>
 
-                    <div class="ns-blog-details-comment">
+                    <div class="ns-blog-details-tag mb-3">
+                        @foreach ($beritaPenanda as $key => $bp)
+                        <a href="{{ route('berita-list', array_merge(request()->query(), ['tag' => strtolower($key)])) }}">{{ $key }}</a>
+                        @endforeach
+                    </div>
+
+                    <!-- <div class="ns-blog-details-comment">
                         <h5 class="ns-blog-details-comment-title">Comments (2)</h5>
                         <div class="ns-blog-details-comment-item ns-comment-border">
                             <div class="ns-blog-details-comment-item-img">
@@ -96,7 +104,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-xl-4 col-lg-5">

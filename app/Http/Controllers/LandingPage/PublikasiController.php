@@ -19,8 +19,9 @@ class PublikasiController extends Controller
         $this->applyFilters($berita, $request);
 
         $additionalData = [
-            'berita' => $berita->paginate(1),
+            'berita' => $berita->paginate(10),
             'beritaTerbaru' => Berita::published()->limit(3)->get(),
+            'beritaPenanda' => Berita::getOrderByTagCount(),
             'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
 
@@ -37,6 +38,7 @@ class PublikasiController extends Controller
         $additionalData = [
             'berita' => $berita,
             'beritaTerbaru' => Berita::published()->limit(3)->get(),
+            'beritaPenanda' => Berita::getOrderByTagCount(),
             'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
 
