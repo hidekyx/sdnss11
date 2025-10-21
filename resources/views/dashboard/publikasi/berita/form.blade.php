@@ -61,6 +61,7 @@
                                         <input name="published_at" class="datepicker-default form-control" id="published_at" placeholder="Tanggal Publikasi" data-value="{{ isset($berita) && $berita->published_at ? \Carbon\Carbon::parse($berita->published_at)->isoFormat('Y/MM/D') : '' }}" required>
                                     </div>
                                 </div>
+                                @if(Auth::user()->role->id == App\Enums\Role::Admin->value || Auth::user()->role->id == App\Enums\Role::KepalaSekolah->value || Auth::user()->role->id == App\Enums\Role::TataUsaha->value)
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label">Status Publikasi</label>
                                     <div class="col-sm-9">
@@ -70,6 +71,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="content">Konten Berita</label>
                                     <div class="col-sm-9 custom-ekditor">
@@ -84,6 +86,23 @@
                                             <option value="{{ $t->title }}">{{ $t->title }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label" for="quote">Kutipan</label>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <select id="quote_by" name="quote_by" data-placeholder="Pilih Kutipan Dari" class="default-select form-control wide" required>
+                                                    @foreach ($user as $u)
+                                                    <option value="{{ $u->id }}" {{ isset($berita) && $berita->quote_by->id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" name="quote" id="quote" class="form-control" placeholder="Kutipan" value="{{ $berita->quote ?? '' }}">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">

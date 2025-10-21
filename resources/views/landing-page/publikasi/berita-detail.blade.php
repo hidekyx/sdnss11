@@ -10,23 +10,27 @@
                     <div class="ns-blog-details-content">
                         <ul class="ns-blog-details-meta">
                             <li><i class="icofont-pencil"></i>{{ $berita->writer?->name }}</li>
+                            <li><i class="icofont-archive"></i>{{ $berita->kategori->text() }}</li>
                             <li><i class="icofont-calendar"></i>{{ $berita->published_at ? \Carbon\Carbon::parse($berita->published_at)->isoFormat('D MMMM Y') : '-' }}</li>
+                            <li><i class="icofont-eye"></i>Dibaca ({{ $berita->viewed }})</li>
                         </ul>
                         <h2 class="ns-blog-details-title mb-20">{{ $berita->title }}</h2>
                         {!! $berita->content !!}
                     </div>
 
+                    @if($berita->quote && $berita->quote_by)
                     <div class="ns-blog-details-client-review">
                         <h5 class="ns-client-review-title">Kutipan:</h5>
                         <blockquote class="ns-blog-detials-quote">
-                            <p>Isi kutipan</p>
+                            <p>{{ $berita->quote }}</p>
                             <div class="ns-quote-admin">
-                                <h5>Nama</h5>
-                                <span>Jabatan</span>
+                                <h5>{{ $berita->quoteBy->name }}</h5>
+                                <span>{{ $berita->quoteBy->role->name }}</span>
                             </div>
                             <span class="ns-quote-icon"><i class="icofont-quote-left"></i></span>
                         </blockquote>
                     </div>
+                    @endif
 
                     <div class="row mb-4">
                         @if($berita->img_2)

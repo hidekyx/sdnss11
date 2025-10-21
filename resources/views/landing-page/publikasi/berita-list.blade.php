@@ -47,7 +47,8 @@
                                 <span class="ns-blog-list-admin"><i class="icofont-pencil"></i>{{ $b->writer?->name }}</span>
                                 <span class="ns-blog-list-date"><i class="icofont-calendar"></i>{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y') : '-' }}</span>
                                 <span class="ns-blog-list-comment"><i class="icofont-archive"></i>{{ $b->kategori->text() }}</span>
-                                <span class="ns-blog-list-comment"><i class="icofont-speech-comments"></i>Komentar(0)</span>
+                                <span class="ns-blog-list-comment"><i class="icofont-speech-comments"></i>Komentar (0)</span>
+                                <span class="ns-blog-list-comment"><i class="icofont-eye"></i>Dibaca ({{ $b->viewed }})</span>
                             </div>
                             <h3 class="ns-blog-list-title">
                                 <a href="{{ route('berita-detail', $b->slug) }}">{{ $b->title }}</a>

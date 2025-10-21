@@ -42,6 +42,11 @@ class Berita extends Model
         return $this->belongsTo(User::class, 'writer_id', 'id');
     }
 
+    public function quoteBy()
+    {
+        return $this->belongsTo(User::class, 'quote_by', 'id');
+    }
+
     // SCOPE
     public function scopeSearch($query, $search)
     {

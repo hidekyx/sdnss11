@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Enums\PublikasiKategori;
 use App\Enums\PublikasiStatus;
+use App\Enums\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BeritaRequest;
 use App\Models\Berita;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +37,8 @@ class BeritaController extends Controller
     {
         $additionalData = [
             'kategoriBerita' => PublikasiKategori::listKategori(),
-            'tags' => Tag::orderBy('title')->get()
+            'tags' => Tag::orderBy('title')->get(),
+            'user' => User::where('role_id', '!=', Role::Admin)->get(),
         ];
 
         return $this->createView('Tambah', 'dashboard.publikasi.berita.form', $additionalData);
@@ -101,7 +104,8 @@ class BeritaController extends Controller
         $additionalData = [
             'berita' => $berita,
             'kategoriBerita' => PublikasiKategori::listKategori(),
-            'tags' => Tag::orderBy('title')->get()
+            'tags' => Tag::orderBy('title')->get(),
+            'user' => User::where('role_id', '!=', Role::Admin)->get(),
         ];
 
         return $this->createView('Edit', 'dashboard.publikasi.berita.form', $additionalData);
