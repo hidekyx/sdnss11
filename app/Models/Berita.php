@@ -49,6 +49,13 @@ class Berita extends Model
             ->orWhere('content', 'like', '%' . $search . '%');
     }
 
+    public function scopeStatus($query, $status)
+    {
+        if ($status != "Semua") {
+            $query->where('is_published', $status);
+        }
+    }
+
     public function scopeCategory($query, $kategori)
     {
         if ($kategori != "Semua") {

@@ -15,7 +15,7 @@ class PublikasiController extends Controller
     public function beritaList(Request $request): View
     {
         $this->subMenu = "Berita";
-        $berita = Berita::orderByDesc('published_at')->published();
+        $berita = Berita::published()->orderByDesc('published_at')->published();
         $this->applyFilters($berita, $request);
 
         $additionalData = [
@@ -30,13 +30,13 @@ class PublikasiController extends Controller
     public function beritaDetail(Request $request, $slug): View
     {
         $this->subMenu = "Berita";
-        $berita = Berita::where('slug', $slug)->firstOrFail();
+        $berita = Berita::published()->where('slug', $slug)->firstOrFail();
         $berita->increment('viewed');
         $this->applyFilters($berita, $request);
 
         $additionalData = [
             'berita' => $berita,
-            'beritaTerbaru' => Berita::limit(3)->get(),
+            'beritaTerbaru' => Berita::published()->limit(3)->get(),
             'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
 

@@ -193,14 +193,14 @@ class BeritaController extends Controller
     private function applyFilters($query, Request $request): void
     {
         $searchQuery = $request->query('search');
-        $roleQuery = $request->query('role');
+        $statusQuery = $request->query('status');
 
         if ($searchQuery) {
             $query->search($searchQuery);
         }
 
-        if ($roleQuery) {
-            $query->role($roleQuery);
+        if (!is_null($statusQuery)) {
+            $query->status($statusQuery);
         }
     }
 }

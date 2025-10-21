@@ -30,6 +30,13 @@
                                         <input class="form-control" type="text" name="search" placeholder="Cari Judul">
                                     </div>
                                     <div class="col-xl-3 col-xxl-6 col-sm-6 mb-3">
+                                        <select class="form-control default-select dashboard-select-2 h-auto wide" name="status">
+                                            <option value="Semua">Semua Status</option>
+                                            <option value="{{ App\Enums\PublikasiStatus::Published }}">{{ App\Enums\PublikasiStatus::Published->text() }}</option>
+                                            <option value="{{ App\Enums\PublikasiStatus::Unpublished }}">{{ App\Enums\PublikasiStatus::Unpublished->text() }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-3 col-xxl-6 col-sm-6 mb-3">
                                         <button class="btn btn-md btn-primary" type="submit"><i class="fa-sharp fa-solid fa-filter me-1"></i>Filter</button>
                                     </div>
                                 </div>
