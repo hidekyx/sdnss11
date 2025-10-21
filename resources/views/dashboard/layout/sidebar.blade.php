@@ -1,28 +1,19 @@
 <div class="deznav">
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
+            @foreach($menu as $m)
             <li>
                 <a class="has-arrow ai-icon" href="#">
-                    <i class="flaticon-381-layer-1"></i>
-                    <span class="nav-text">Data Pembelajaran</span>
+                    <i class="{{ $m->icon }}"></i>
+                    <span class="nav-text">{{ $m->name }}</span>
                 </a>
                 <ul>
-                    <li class="{{ Route::is('dashboard-pembelajaran-guru-dan-tendik*') ? 'mm-active' : '' }}"><a class="{{ Route::is('dashboard-pembelajaran-guru-dan-tendik*') ? 'mm-active' : '' }}" href="{{ route('dashboard-pembelajaran-guru-dan-tendik') }}">Guru dan Tendik</a></li>
-                    <li class="{{ Route::is('dashboard-pembelajaran-kelas*') ? 'mm-active' : '' }}"><a class="{{ Route::is('dashboard-pembelajaran-kelas*') ? 'mm-active' : '' }}" href="{{ route('dashboard-pembelajaran-kelas') }}">Kelas</a></li>
-                    <li class="{{ Route::is('dashboard-pembelajaran-siswa*') ? 'mm-active' : '' }}"><a class="{{ Route::is('dashboard-pembelajaran-siswa*') ? 'mm-active' : '' }}" href="{{ route('dashboard-pembelajaran-siswa') }}">Siswa</a></li>
+                    @foreach($m->children as $c)
+                    <li class="{{ $subMenu == $c->name ? 'mm-active' : '' }}"><a class="{{ $subMenu == $c->name ? 'mm-active' : '' }}" href="{{ route($c->route) }}">{{ $c->name }}</a></li>
+                    @endforeach
                 </ul>
             </li>
-            <li>
-                <a class="has-arrow ai-icon" href="#">
-                    <i class="flaticon-381-notepad"></i>
-                    <span class="nav-text">Publikasi</span>
-                </a>
-                <ul>
-                    <li class="{{ Route::is('dashboard-publikasi-berita*') ? 'mm-active' : '' }}"><a class="{{ Route::is('dashboard-publikasi-berita*') ? 'mm-active' : '' }}" href="{{ route('dashboard-publikasi-berita') }}">Berita</a></li>
-                    <li><a href="#">Agenda</a></li>
-                    <li><a href="#">Prestasi</a></li>
-                </ul>
-            </li>
+            @endforeach
         </ul>
         <div class="copyright">
             <p><strong>SDN Srengseng Sawah 11</strong> <br>© 2025 Developed by HideKy</p>

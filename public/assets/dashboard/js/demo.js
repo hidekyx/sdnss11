@@ -268,7 +268,7 @@ function deleteAllCookie(reload = true)
 		}else if(attrName === "sidebartext"){
 			document.getElementById("sidebar_text_"+item.value).checked = true;
 		}else if(attrName === "direction" || attrName === "nav_headerbg" || attrName === "headerbg"){
-			document.getElementById("theme_direction").value = item.value;	
+			// document.getElementById("theme_direction").value = item.value;	
 		}else if(attrName === "sidebar_style" || attrName === "sidebar_position" || attrName === "header_position" || attrName === "typography" || attrName === "theme_version" ){
 			if(item.value === "cairo" || item.value === "full" || item.value === "fixed"|| item.value === "light"){return false}
 			document.getElementById(attrName).value = item.value;				

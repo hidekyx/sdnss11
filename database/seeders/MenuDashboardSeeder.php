@@ -11,60 +11,45 @@ class MenuDashboardSeeder extends Seeder
     {
         MenuDashboard::truncate();
 
-        $dashboard = MenuDashboard::create([
-            'name' => 'Dashboard',
-            'icon' => 'home',
-            'route' => 'dashboard',
-        ]);
-
         $pembelajaran = MenuDashboard::create([
             'name' => 'Pembelajaran',
-            'icon' => 'database',
+            'icon' => 'flaticon-381-database',
             'route' => null,
         ]);
 
-        // Sub Menu
-        MenuDashboard::create([
-            'parent_id' => $pembelajaran->id,
-            'name' => 'Guru dan Tendik',
-            'icon' => 'users',
-            'route' => 'dashboard-pembelajaran-guru-dan-tendik',
-        ]);
-        
-        MenuDashboard::create([
-            'parent_id' => $pembelajaran->id,
-            'name' => 'Siswa',
-            'icon' => 'users',
-            'route' => 'dashboard-pembelajaran-siswa',
-        ]);
-
-        MenuDashboard::create([
-            'parent_id' => $pembelajaran->id,
-            'name' => 'Kelas',
-            'icon' => 'users',
-            'route' => 'kelas',
-        ]);
-
-        $pelajaran = MenuDashboard::create([
-            'parent_id' => $pembelajaran->id,
-            'name' => 'Pelajaran',
-            'icon' => 'users',
+        $publikasi = MenuDashboard::create([
+            'name' => 'Publikasi',
+            'icon' => 'flaticon-381-notepad',
             'route' => null,
         ]);
 
-        // Child Menu
-        MenuDashboard::create([
-            'parent_id' => $pelajaran->id,
-            'name' => 'Mata Pelajaran',
-            'icon' => 'users',
-            'route' => 'mata-pelajaran',
-        ]);
+            // Sub Menu
+            MenuDashboard::create([
+                'parent_id' => $pembelajaran->id,
+                'name' => 'Guru dan Tendik',
+                'icon' => null,
+                'route' => 'dashboard-pembelajaran-guru-dan-tendik',
+            ]);
+            
+            MenuDashboard::create([
+                'parent_id' => $pembelajaran->id,
+                'name' => 'Siswa',
+                'icon' => null,
+                'route' => 'dashboard-pembelajaran-siswa',
+            ]);
 
-        MenuDashboard::create([
-            'parent_id' => $pelajaran->id,
-            'name' => 'Jadwal Pelajaran',
-            'icon' => 'users',
-            'route' => 'jadwal-pelajaran',
-        ]);
+            MenuDashboard::create([
+                'parent_id' => $pembelajaran->id,
+                'name' => 'Kelas',
+                'icon' => null,
+                'route' => 'dashboard-pembelajaran-kelas',
+            ]);
+
+            MenuDashboard::create([
+                'parent_id' => $publikasi->id,
+                'name' => 'Berita',
+                'icon' => null,
+                'route' => 'dashboard-publikasi-berita',
+            ]);
     }
 }
