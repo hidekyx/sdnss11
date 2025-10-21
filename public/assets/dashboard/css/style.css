@@ -18670,7 +18670,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 .sidebar-right .bg-label-pattern {
     background: transparent;
-    background-image: url("../images/pattern/pattern5.png");
+    background-image: url("/assets/dashboard/images/pattern5.png");
     background-size: 130%;
 }
 

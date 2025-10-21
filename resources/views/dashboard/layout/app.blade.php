@@ -57,9 +57,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="#" class="brand-logo">
-                <img class="logo-abbr" src="{{ asset('assets/images/layout/logo-sekolah.png') }}" alt="">
-                <img class="logo-compact" src="{{ asset('assets/images/layout/logo-sekolah.png') }}" alt="">
-                <img class="brand-title" src="{{ asset('assets/images/layout/logo-sekolah.png') }}" alt="">
+                <img class="logo-abbr" src="{{ asset('images/layout/logo-sekolah.png') }}" alt="">
+                <img class="logo-compact" src="{{ asset('images/layout/logo-text.png') }}" alt="">
+                <img class="brand-title" src="{{ asset('images/layout/logo-text.png') }}" alt="">
             </a>
 
             <div class="nav-control">
@@ -75,7 +75,7 @@
         <!--**********************************
             Chat box start
         ***********************************-->
-        @include('dashboard.layout.chatbox')
+        
         <!--**********************************
             Chat box End
         ***********************************-->
