@@ -202,23 +202,6 @@
                 new dezSettings(dezSettingsOptions);
                 jQuery('.dz-theme-mode').addClass('active');
             })
-            $(".summernote").summernote({
-                height: 190,
-                minHeight: null,
-                maxHeight: null,
-                focus: !1,
-                toolbar: [
-                    // [groupName, [list of button]]
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['para', ['ul', 'ol']]
-                ]
-            }), $(".inline-editor").summernote({
-                airMode: !0
-            }),
-            $('.multi-select').select2({
-                placeholder: "Pilih tags"
-            });
         });
     </script>
 

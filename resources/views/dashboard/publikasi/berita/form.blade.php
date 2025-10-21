@@ -65,9 +65,9 @@
                                     <label class="col-sm-3 col-form-label">Status Publikasi</label>
                                     <div class="col-sm-9">
                                         <div class="form-check custom-checkbox">
-											<input id="is_published" type="checkbox" class="form-check-input" {{ isset($berita) && $berita->is_published->value == 1 ? 'checked' : '' }}>
-											<label class="form-check-label" for="is_published">Publikasikan</label>
-										</div>
+                                            <input id="is_published" type="checkbox" class="form-check-input" {{ isset($berita) && $berita->is_published->value == 1 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="is_published">Publikasikan</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -137,6 +137,28 @@
 
 @push('scripts')
 <script>
+    jQuery(document).ready(function() {
+        $(".summernote").summernote({
+            height: 190,
+            minHeight: null,
+            maxHeight: null,
+            focus: !1,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['para', ['ul', 'ol']]
+            ]
+        }), 
+        
+        $(".inline-editor").summernote({
+            airMode: !0
+        }),
+
+        $('.datepicker-default').pickadate({
+            formatSubmit: 'yyyy-mm-dd',
+        })
+    });
+
     $('input[type="file"]').on("change", function(event) {
         var id = $(this).attr('name');
         let file = event.target.files[0];
@@ -149,11 +171,8 @@
         }
     });
 
-    (function($) {
-        "use strict"
-        $('.datepicker-default').pickadate({
-            formatSubmit: 'yyyy-mm-dd',
-        });
-    })(jQuery);
+    $(".multi-select").select2({
+        placeholder: "Pilih tag"
+    });
 </script>
 @endpush

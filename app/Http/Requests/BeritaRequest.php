@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Enums\PublikasiKategori;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,8 @@ class BeritaRequest extends FormRequest
     public function rules()
     {
 
-        dd(Request::all());
         $kategori = array_keys(PublikasiKategori::listKategori());
+        $users = User::get()->pluck('id')->toArray();
 
         $rules = [
             'kategori' => 'required|in:' . implode(',', $kategori),
@@ -27,6 +28,8 @@ class BeritaRequest extends FormRequest
             'caption' => 'nullable|string|max:255',
             'published_at_submit' => 'nullable|date',
             'is_published' => 'nullable',
+            'quote' => 'nullable|string',
+            'quote_by' => 'nullable|in:' . implode(',', $users),
             'img' => $this->isMethod('PUT') ? 'nullable|image|mimes:jpeg,png,jpg|max:10000' : 'required|image|mimes:jpeg,png,jpg|max:10000',
             'img_2' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
             'img_3' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
@@ -40,6 +43,7 @@ class BeritaRequest extends FormRequest
     {
         return [
             'kategori.required' => 'Kategori wajib dipilih',
+            'quote_by.in' => 'User kutipan tidak ditemukkan',
             'title.required' => 'Judul tidak boleh kosong',
             'title.max' => 'Judul terlalu panjang',
             'content.required' => 'Konten tidak boleh kosong',
