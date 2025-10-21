@@ -3,19 +3,30 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\MenuDashboard;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
+    public $mainMenu    = "Dashboard";
+    public $subMenu     = "Home";
+
     public function index(): View
     {
-        $view = [
-            'menus' => MenuDashboard::whereNull('parent_id')->with('children')->get(),
+        $additionalData = [
+            
         ];
 
-        // dd($view['menu'][1]->children);
+        return $this->createView('Home', 'dashboard.home.index', $additionalData);
+    }
 
-        return view('dashboard.home.index')->with($view);
+    private function createView(string $detailMenu, string $viewPath, array $additionalData = []): View
+    {
+        $view = array_merge([
+            'mainMenu' => $this->mainMenu,
+            'subMenu' => $this->subMenu,
+            'detailMenu' => $detailMenu,
+        ], $additionalData);
+
+        return view($viewPath)->with($view);
     }
 }

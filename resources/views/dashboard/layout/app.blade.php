@@ -11,13 +11,12 @@
     <meta name="author" content="DexignZone">
     <meta name="robots" content="">
 
-    <meta name="keywords" content="admin dashboard, admin template, administration, analytics, bootstrap, disease, doctor, elegant, health, hospital admin, medical dashboard, modern, responsive admin dashboard">
-    <meta name="description" content="Mediqu. is a Fully Mobile Responsive Admin Dashboard Templates for Hospitals dentists, doctors, surgeons, hospitals, health clinics, pediatrics, psychiatrist, psychiatry, stomatology, chiropractor, veterinary clinics. This minimal template is being packed with tons of features like Dashboard Pages, Elements pages, Shop/Store Pages, Product Pages, All Inner Pages with Total 70+ HTML Files. Mediqu. is designed for especially Mobile devices and all types of modern browsers.">
+    <meta name="keywords" content="dashboard, sdnss11, sdn srengseng sawah 11">
+    <meta name="description" content="Dashboard - SDN Srengseng Sawah 11">
 
-    <meta property="og:title" content="Mediqu  - Hospital Admin Dashboard Bootstrap Template">
-    <meta property="og:description" content="Mediqu. is a Fully Mobile Responsive Admin Dashboard Templates for Hospitals dentists, doctors, surgeons, hospitals, health clinics, pediatrics, psychiatrist, psychiatry, stomatology, chiropractor, veterinary clinics. This minimal template is being packed with tons of features like Dashboard Pages, Elements pages, Shop/Store Pages, Product Pages, All Inner Pages with Total 70+ HTML Files. Mediqu. is designed for especially Mobile devices and all types of modern browsers.">
+    <meta property="og:title" content="Dashboard - SDN Srengseng Sawah 11">
+    <meta property="og:description" content="Dashboard - SDN Srengseng Sawah 11">
     <meta property="og:image" content="{{ asset('assets/images/layout/logo-sekolah.png') }}">
-    <meta name="format-detection" content="telephone=no">
 
     <!-- Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +37,7 @@
 </head>
 
 <body>
-
+    
     <!--*******************
         Preloader start
     ********************-->
@@ -50,6 +49,7 @@
     <!--**********************************
         Main wrapper start
     ***********************************-->
+    @if($mainMenu != "Autentikasi")
     <div id="main-wrapper">
 
         <!--**********************************
@@ -166,6 +166,9 @@
 
 
     </div>
+    @else
+    @yield('autentikasi')
+    @endif
     <!--**********************************
         Main wrapper end
     ***********************************-->

@@ -15733,9 +15733,8 @@ svg.pulse-svg .third-circle {
     font-size: 18px;
 }
 
-.header-right .notification_dropdown .nav-link svg {
-    width: 18px;
-    height: 18px;
+.header-right .notification_dropdown .nav-link span {
+    font-size: 18px;
 }
 
 .header-right .notification_dropdown .nav-link .badge {
