@@ -72,8 +72,18 @@
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="content">Konten Berita</label>
+                                    <div class="col-sm-9 custom-ekditor">
+                                        <textarea id="content" name="content" class="form-control summernote" placeholder="Konten Berita" rows="10" required>{{ $berita->content ?? '' }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-3 col-form-label" for="tags">Tags</label>
                                     <div class="col-sm-9">
-                                        <textarea id="content" name="content" class="form-control" placeholder="Konten Berita" rows="4" required>{{ $berita->content ?? '' }}</textarea>
+                                        <select class="multi-select form-control" style="width:100%;" name="tags[]" multiple="multiple">
+                                            @foreach($tags as $t)
+                                            <option value="{{ $t->title }}">{{ $t->title }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">

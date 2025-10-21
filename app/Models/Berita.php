@@ -23,6 +23,8 @@ class Berita extends Model
         'img_2',
         'img_3',
         'img_4',
+        'quote',
+        'quote_by',
         'thumbnail',
         'viewed',
         'is_published',

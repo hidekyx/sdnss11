@@ -83,7 +83,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="#" class="fw-bold text-primary">{{ $b->title }}</a>
+                                                <a href="{{ route('berita-detail', $b->slug) }}" class="fw-bold text-primary">{{ $b->title }}</a>
                                             </td>
                                             <td>
                                                 <span class="badge light badge-{{ $b->kategori->color() }}">{{ $b->kategori->text() }}</span>
@@ -92,10 +92,11 @@
                                                 <div class="text-sm">{{ $b->writer->name ?? '-' }}</div>
                                             </td>
                                             <td>
-                                                <div class="fw-bold">{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y - H:mm:ss') : '-' }}</div>
+                                                <div class="fw-bold">{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y') : '-' }}</div>
                                             </td>
                                             <td>
                                                 <div class="d-flex">
+                                                    <a href="{{ route('berita-detail', $b->slug) }}" target="_blank" class="btn btn-info shadow btn-xs sharp me-1"><i class="fa fa-eye"></i></a>
                                                     <a href="{{ route('dashboard-publikasi-berita-edit', $b->id) }}" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
                                                     <button type="button" class="btn btn-danger shadow btn-xs sharp delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-name="{{ $b->title }}" data-url="{{ route('dashboard-publikasi-berita-hapus', $b->id) }}"><i class="fa fa-trash"></i></a>
                                                 </div>

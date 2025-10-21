@@ -30,6 +30,7 @@
     <link href="{{ asset('assets/dashboard/vendor/pickdate/themes/default.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/vendor/pickdate/themes/default.date.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/vendor/select2/css/select2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/dashboard/vendor/summernote/summernote.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/dashboard/css/style.css') }}" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
@@ -180,6 +181,7 @@
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.time.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.date.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/dashboard/vendor/summernote/summernote.min.js') }}"></script>
 
     <!-- Dashboard 1 -->
     <!-- <script src="{{ asset('assets/dashboard/js/dashboard/dashboard-1.js') }}"></script> -->
@@ -199,6 +201,23 @@
                 dezSettingsOptions.version = 'dark';
                 new dezSettings(dezSettingsOptions);
                 jQuery('.dz-theme-mode').addClass('active');
+            })
+            $(".summernote").summernote({
+                height: 190,
+                minHeight: null,
+                maxHeight: null,
+                focus: !1,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['para', ['ul', 'ol']]
+                ]
+            }), $(".inline-editor").summernote({
+                airMode: !0
+            }),
+            $('.multi-select').select2({
+                placeholder: "Pilih tags"
             });
         });
     </script>

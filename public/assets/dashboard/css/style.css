@@ -14087,6 +14087,15 @@ li {
     list-style: none;
 }
 
+.note-editable ol li {
+    list-style: auto !important;
+}
+
+.note-editable ul li {
+    list-style: disc !important;
+    margin-left: 20px !important;
+}
+
 a {
     color: #7e7e7e;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Enums\PublikasiKategori;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class BeritaRequest extends FormRequest
 {
@@ -14,6 +15,8 @@ class BeritaRequest extends FormRequest
 
     public function rules()
     {
+
+        dd(Request::all());
         $kategori = array_keys(PublikasiKategori::listKategori());
 
         $rules = [
