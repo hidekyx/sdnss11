@@ -18,7 +18,7 @@ class AgendaRequest extends FormRequest
 
         $rules = [
             'penanggung_jawab_id' => 'required|in:' . implode(',', $users),
-            'date' => 'required|date',
+            'date_submit' => 'required|date',
             'time_1' => 'required|date_format:H:i',
             'time_2' => 'required|date_format:H:i',
             'title' => 'required|string|max:500',
@@ -37,7 +37,7 @@ class AgendaRequest extends FormRequest
             'title.max' => 'Judul terlalu panjang',
             'location.required' => 'Lokasi tidak boleh kosong',
             'location.max' => 'Lokasi terlalu panjang',
-            'date.required' => 'Tanggal tidak boleh kosong',
+            'date_submit.required' => 'Tanggal tidak boleh kosong',
             'time_1.required' => 'Waktu mulai tidak boleh kosong',
             'time_2.required' => 'Waktu selesai tidak boleh kosong',
         ];

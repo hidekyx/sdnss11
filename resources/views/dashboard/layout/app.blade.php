@@ -30,6 +30,7 @@
     <link href="{{ asset('assets/dashboard/vendor/pickdate/themes/default.date.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/vendor/select2/css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/vendor/summernote/summernote.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/dashboard/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/dashboard/css/style.css') }}" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
@@ -180,11 +181,13 @@
     <script src="{{ asset('assets/dashboard/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <!-- <script src="{{ asset('assets/dashboard/vendor/apexchart/apexchart.js') }}"></script> -->
+     <script src="{{ asset('assets/dashboard/vendor/moment/moment.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.time.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/pickdate/picker.date.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendor/summernote/summernote.min.js') }}"></script>
+    <script src="{{ asset('assets/dashboard/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
 
     <!-- Dashboard 1 -->
     <!-- <script src="{{ asset('assets/dashboard/js/dashboard/dashboard-1.js') }}"></script> -->

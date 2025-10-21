@@ -51,7 +51,7 @@ class AgendaController extends Controller
 
             $agenda = new Agenda($data);
             $agenda->time = $data['time_1'] .' - '. $data['time_2'];
-            $agenda->published_at = $data['published_at_submit'];
+            $agenda->date = $data['date_submit'];
             $agenda->save();
 
             return redirect()->route('dashboard-publikasi-agenda')
@@ -90,7 +90,7 @@ class AgendaController extends Controller
             $agenda = Agenda::findOrfail($id);
 
             $data = $request->validated();
-            $data['published_at'] = $data['published_at_submit'];
+            $data['date'] = $data['date_submit'];
 
             if (isset($data['is_published']) && $data['is_published'] == "on") {
                 $data['is_published'] = PublikasiStatus::Published;
