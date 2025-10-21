@@ -87,7 +87,7 @@
                                                 @if($u->avatar && Storage::disk('public')->exists('images/avatar/' . $u->avatar))
                                                 <img src="{{ asset('storage/images/avatar/'.$u->avatar) }}" class="rounded-lg me-2" width="24" alt="Foto Profil">
                                                 @else
-                                                <img src="{{ asset('assets/dashboard/images/preview-1.jpg') }}" class="rounded-lg me-2" width="24" alt="Foto Profil">
+                                                <img src="{{ asset('assets/dashboard/images/profile-default.png') }}" class="rounded-lg me-2" width="24" alt="Foto Profil">
                                                 @endif
                                             </td>
                                             <td>
