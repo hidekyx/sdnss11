@@ -10314,8 +10314,9 @@ input:focus::placeholder, textarea:focus::placeholder {
 
 .ns-blog-details-banner-img-bottom {
   width: 100%;
-  height: 200px !important;
+  height: 150px !important;
   object-fit: cover;
+  object-position: bottom center;
 }
 
 .ns-blog-details-content {

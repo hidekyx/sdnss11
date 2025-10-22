@@ -20,7 +20,7 @@ class PublikasiController extends Controller
 
         $additionalData = [
             'berita' => $berita->paginate(10),
-            'beritaTerbaru' => Berita::published()->limit(3)->get(),
+            'beritaTerbaru' => Berita::published()->orderByDesc('published_at')->limit(3)->get(),
             'beritaPenanda' => Berita::getOrderByTagCount(),
             'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
@@ -32,12 +32,13 @@ class PublikasiController extends Controller
     {
         $this->subMenu = "Berita";
         $berita = Berita::published()->where('slug', $slug)->firstOrFail();
+        $berita->tags = $berita->getTagsArray();
         $berita->increment('viewed');
         $this->applyFilters($berita, $request);
 
         $additionalData = [
             'berita' => $berita,
-            'beritaTerbaru' => Berita::published()->limit(3)->get(),
+            'beritaTerbaru' => Berita::published()->orderByDesc('published_at')->limit(3)->get(),
             'beritaPenanda' => Berita::getOrderByTagCount(),
             'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];

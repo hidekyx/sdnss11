@@ -84,7 +84,7 @@
                                     <div class="col-sm-9">
                                         <select class="multi-select form-control" style="width:100%;" name="tags[]" multiple="multiple">
                                             @foreach($tags as $t)
-                                            <option value="{{ $t->title }}">{{ $t->title }}</option>
+                                            <option value="{{ $t->title }}" {{ isset($berita) && in_array($t->title, $berita->tags) ? 'selected' : '' }}>{{ $t->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -96,7 +96,7 @@
                                             <div class="col-3">
                                                 <select id="quote_by" name="quote_by" data-placeholder="Pilih Kutipan Dari" class="default-select form-control wide" required>
                                                     @foreach ($user as $u)
-                                                    <option value="{{ $u->id }}" {{ isset($berita) && isset($berita->quote_by) && $berita->quote_by->id == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
+                                                    <option value="{{ $u->id }}" {{ isset($berita) && isset($berita->quote_by) && $berita->quote_by == $u->id ? 'selected' : '' }}>{{ $u->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label" for="img">Foto Utama</label>
+                                    <label class="col-sm-3 col-form-label">Foto Utama</label>
                                     <div class="col-sm-9">
                                         <input id="img" name="img" class="form-control mb-3" type="file" placeholder="img" accept=".png, .jpg, .jpeg" {{ isset($berita) && $berita->img ? '' : 'required'}}>
                                         @if(isset($berita) && $berita->img && Storage::disk('public')->exists('images/berita/' . $berita->img))
@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label" for="img_tambahan">Foto Tambahan</label>
+                                    <label class="col-sm-3 col-form-label">Foto Tambahan</label>
                                     <div class="col-sm-9">
                                         <div class="row">
                                             @foreach (range(2, 4) as $num)

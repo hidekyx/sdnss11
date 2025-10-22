@@ -15,14 +15,14 @@
                             <li><i class="icofont-eye"></i>Dibaca ({{ $berita->viewed }})</li>
                         </ul>
                         <h2 class="ns-blog-details-title mb-20">{{ $berita->title }}</h2>
-                        {!! $berita->content !!}
+                        <div class="text-justify ns-blog-content-text">{!! $berita->content !!}</div>
                     </div>
 
                     @if($berita->quote && $berita->quote_by)
                     <div class="ns-blog-details-client-review">
                         <h5 class="ns-client-review-title">Kutipan:</h5>
                         <blockquote class="ns-blog-detials-quote">
-                            <p>{{ $berita->quote }}</p>
+                            <p class="text-justify">{{ $berita->quote }}</p>
                             <div class="ns-quote-admin">
                                 <h5>{{ $berita->quoteBy->name }}</h5>
                                 <span>{{ $berita->quoteBy->role->name }}</span>
@@ -53,8 +53,8 @@
                     </div>
 
                     <div class="ns-blog-details-tag mb-3">
-                        @foreach ($beritaPenanda as $key => $bp)
-                        <a href="{{ route('berita-list', array_merge(request()->query(), ['tag' => strtolower($key)])) }}">{{ $key }}</a>
+                        @foreach ($berita->tags as $t)
+                        <a href="{{ route('berita-list', array_merge(request()->query(), ['tag' => strtolower($t)])) }}">{{ $t }}</a>
                         @endforeach
                     </div>
 

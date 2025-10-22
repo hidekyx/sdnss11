@@ -45,15 +45,15 @@
                         <div class="ns-blog-list-content">
                             <div class="ns-blog-list-meta">
                                 <span class="ns-blog-list-admin"><i class="icofont-pencil"></i>{{ $b->writer?->name }}</span>
-                                <span class="ns-blog-list-date"><i class="icofont-calendar"></i>{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y') : '-' }}</span>
                                 <span class="ns-blog-list-comment"><i class="icofont-archive"></i>{{ $b->kategori->text() }}</span>
+                                <span class="ns-blog-list-date"><i class="icofont-calendar"></i>{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y') : '-' }}</span>
                                 <span class="ns-blog-list-comment"><i class="icofont-speech-comments"></i>Komentar (0)</span>
-                                <span class="ns-blog-list-comment"><i class="icofont-eye"></i>Dibaca ({{ $b->viewed }} )</span>
+                                <span class="ns-blog-list-comment"><i class="icofont-eye"></i>Dibaca ({{ $b->viewed }})</span>
                             </div>
                             <h3 class="ns-blog-list-title">
                                 <a href="{{ route('berita-detail', $b->slug) }}">{{ $b->title }}</a>
                             </h3>
-                            <p>{!! Str::limit($b->content, 400) !!}</p>
+                            <p class="text-justify">{!! Str::limit(strip_tags($b->content), 400) !!}</p>
                             <div class="ns-blog-list-bottom">
                                 <a href="{{ route('berita-detail', $b->slug) }}" class="ns-theme-btn">Baca Selengkapnya <i class="fal fa-arrow-right"></i></a>
                                 <div class="ns-blog-list-social">

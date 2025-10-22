@@ -22,7 +22,7 @@ class BeritaController extends Controller
 
     public function index(Request $request): View
     {
-        $berita = Berita::orderBy('id');
+        $berita = Berita::orderByDesc('published_at');
         $this->applyFilters($berita, $request);
 
         $additionalData = [
@@ -101,6 +101,7 @@ class BeritaController extends Controller
     public function edit($id): View
     {
         $berita = Berita::findOrfail($id);
+        $berita->tags = explode(', ', $berita->tags);
         $additionalData = [
             'berita' => $berita,
             'kategoriBerita' => PublikasiKategori::listKategori(),

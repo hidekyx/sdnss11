@@ -12,8 +12,8 @@
             </div>
         </div>
         <div class="swiper-container blog-active">
-            @foreach($beritaTerbaru as $bt)
             <div class="swiper-wrapper">
+                @foreach($beritaTerbaru as $bt)
                 <div class="swiper-slide">
                     <div class="ns-blog-item">
                         <div class="ns-blog-img w_img">
@@ -30,15 +30,15 @@
                             <h3 class="ns-blog-content-title">
                                 <a href="{{ route('berita-detail', $bt->slug) }}">{!! Str::limit($bt->title, 40) !!}</a>
                             </h3>
-                            <p>{!! Str::limit($bt->content, 50) !!}</p>
+                            <p>{!! Str::limit(strip_tags($bt->content), 100) !!}</p>
                             <p><a href="{{ route('berita-detail', $bt->slug) }}" class="ns-blog-btn">Baca Selengkapnya<i class="icofont-plus"></i></a></p>
                             <span class="ns-blog-shape-1"></span>
                             <span class="ns-blog-shape-2"></span>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
             <div class="ns-blog-pagination mt-50"></div>
         </div>
     </div>

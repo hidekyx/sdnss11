@@ -41,5 +41,6 @@ if (!function_exists('storeBeritaImage')) {
         }
 
         $image->save($savePath);
+        return $filename;
     }
 }

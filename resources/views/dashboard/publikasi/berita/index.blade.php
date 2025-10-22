@@ -84,7 +84,7 @@
                                         <tr>
                                             <td>
                                                 @if($b->img && Storage::disk('public')->exists('images/berita/' . $b->img))
-                                                    <img src="{{ asset('storage/images/berita/'.$b->img) }}" class="rounded-lg me-2" width="100" alt="Foto Berita">
+                                                    <img src="{{ asset('storage/images/berita/'.$b->img) }}" class="rounded-lg me-2" alt="Foto Berita" style="width: 100px; height: 70px; object-fit: cover;">
                                                 @endif
                                             </td>
                                             <td>
