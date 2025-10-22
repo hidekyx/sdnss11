@@ -1,6 +1,6 @@
-<footer class="ns-footer-area bg-default" data-background="assets/img/footer/footer-bg.png">
-    <img src="assets/img/footer/footer-shape-1.png" alt="Not Found" class="ns-footer-shape-1 ns-footer-shape">
-    <img src="assets/img/footer/footer-map.png" alt="Not Found" class="ns-footer-shape-2 ns-footer-shape">
+<footer class="ns-footer-area bg-default" data-background="{{ asset('assets/landing-page/images/footer-bg.png') }}">
+    <img src="{{ asset('assets/landing-page/images/footer-shape-1.png') }}" alt="Not Found" class="ns-footer-shape-1 ns-footer-shape">
+    <img src="{{ asset('assets/landing-page/images/footer-map.png') }}" alt="Not Found" class="ns-footer-shape-2 ns-footer-shape">
     <div class="ns-footer-top pt-95 pb-55">
         <div class="container">
             <div class="row justify-content-between">

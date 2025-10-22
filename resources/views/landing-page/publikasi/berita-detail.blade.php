@@ -32,21 +32,21 @@
                     </div>
                     @endif
 
-                    <div class="row mb-4">
+                    <div class="row">
                         @if($berita->img_2)
-                        <div class="col-lg">
+                        <div class="col-lg mb-4">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_2) }}" alt="Foto Berita">
                         </div>
                         @endif
 
                         @if($berita->img_3)
-                        <div class="col-lg">
+                        <div class="col-lg mb-4">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_3) }}" alt="Foto Berita">
                         </div>
                         @endif
 
                         @if($berita->img_4)
-                        <div class="col-lg">
+                        <div class="col-lg mb-4">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_4) }}" alt="Foto Berita">
                         </div>
                         @endif
@@ -56,6 +56,13 @@
                         @foreach ($berita->tags as $t)
                         <a href="{{ route('berita-list', array_merge(request()->query(), ['tag' => strtolower($t)])) }}">{{ $t }}</a>
                         @endforeach
+                    </div>
+
+                    <div class="ns-blog-list-social-icon ns-blog-list-social-icon-detail">
+                        <h5 class="ns-client-review-title">Bagikan:</h5>
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ route('berita-detail', $berita->slug) }}"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://twitter.com/share?url={{ route('berita-detail', $berita->slug) }}&text={{ $berita->title }}"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="whatsapp://send?text={{ route('berita-detail', $berita->slug) }}"><i class="fab fa-whatsapp"></i></a>
                     </div>
 
                     <!-- <div class="ns-blog-details-comment">
