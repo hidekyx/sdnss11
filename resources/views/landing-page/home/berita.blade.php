@@ -7,8 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="ns-section mb-50 text-center">
-                    <span class="ns-section-subtitle">Largest Blog</span>
-                    <h2 class="ns-section-title mb-0">Our largest News Blog</h2>
+                    <h2 class="ns-section-title text-uppercase ns-text-primary mb-0">BERITA TERBARU</h2>
                 </div>
             </div>
         </div>
@@ -18,7 +17,7 @@
                 <div class="swiper-slide">
                     <div class="ns-blog-item">
                         <div class="ns-blog-img w_img">
-                            <a href="{{ route('berita-detail', $bt->slug) }}"><img src="{{ asset('storage/images/berita/'.$bt->img) }}" alt="Foto Berita"></a>
+                            <a href="{{ route('berita-detail', $bt->slug) }}"><img src="{{ asset('storage/images/berita/'.$bt->img) }}" alt="Foto Berita" style="height: 240px; object-fit: cover;"></a>
                             <span class="ns-blog-tag">{{ $bt->kategori->text() }}</span>
                             <span class="ns-blog-img-shape-1"></span>
                             <span class="ns-blog-img-shape-2"></span>

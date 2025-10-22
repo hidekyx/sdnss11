@@ -82,7 +82,7 @@ class KelasController extends Controller
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
                     'alert_icon' => 'mdi-alert',
-                    'alert_messages' => [$e],
+                    'alert_messages' => [$e->getMessage()],
                 ]);
         }
     }

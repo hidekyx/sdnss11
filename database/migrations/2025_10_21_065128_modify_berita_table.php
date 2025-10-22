@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('berita', function (Blueprint $table) {
-            $table->string('quote')->after('img_4')->nullable();
+            $table->text('quote')->after('img_4')->nullable();
             $table->foreignId('quote_by')->nullable()->constrained('users')->cascadeOnDelete()->after('quote');
         });
     }

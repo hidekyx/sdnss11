@@ -10,7 +10,7 @@
         @foreach($beritaTerbaru as $bt)
         <div class="ns-blog-details-widget-post">
             <div class="ns-blog-details-post-img">
-                <a href="{{ route('berita-detail', $bt->slug) }}"><img src="{{ asset('storage/images/berita/'.$bt->img) }}" alt="Foto Berita Terbaru"></a>
+                <a href="{{ route('berita-detail', $bt->slug) }}"><img src="{{ asset('storage/images/berita/'.$bt->img) }}" alt="Foto Berita Terbaru" style="width: 100%; height: 64px; object-fit: cover;"></a>
             </div>
             <div class="ns-blog-details-post-content">
                 <span><i class="icofont-calendar"></i>{{ $bt->published_at ? \Carbon\Carbon::parse($bt->published_at)->isoFormat('D MMMM Y') : '-' }}</span>

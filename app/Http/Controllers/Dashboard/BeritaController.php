@@ -52,7 +52,7 @@ class BeritaController extends Controller
             $imageKeys = ['img', 'img_2', 'img_3', 'img_4'];
             foreach ($imageKeys as $key) {
                 if ($request->hasFile($key)) {
-                    $data[$key] = storeFile($request->file($key), 'images/berita');
+                    $data[$key] = storeBeritaImage($request->file($key), 'images/berita');
 
                     if ($request->hasFile('img') && $key == 'img') {
                         $file = $request->file('img');
@@ -93,7 +93,7 @@ class BeritaController extends Controller
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
                     'alert_icon' => 'mdi-alert',
-                    'alert_messages' => [$e],
+                    'alert_messages' => [$e->getMessage()],
                 ]);
         }
     }
@@ -121,7 +121,7 @@ class BeritaController extends Controller
             $imageKeys = ['img', 'img_2', 'img_3', 'img_4'];
             foreach ($imageKeys as $index => $key) {
                 if ($request->hasFile($key)) {
-                    $data[$key] = storeFile($request->file($key), 'images/berita');
+                    $data[$key] = storeBeritaImage($request->file($key), 'images/berita');
                 }
             }
 
@@ -155,7 +155,7 @@ class BeritaController extends Controller
                     'alert_type' => 'danger',
                     'alert_title' => 'Validasi Gagal!',
                     'alert_icon' => 'mdi-alert',
-                    'alert_messages' => [$e],
+                    'alert_messages' => [$e->getMessage()],
                 ]);
         }
     }
@@ -178,7 +178,7 @@ class BeritaController extends Controller
                     'alert_type' => 'danger',
                     'alert_title' => 'Gagal!',
                     'alert_icon' => 'mdi-alert',
-                    'alert_messages' => [$e],
+                    'alert_messages' => [$e->getMessage()],
                 ]);
         }
     }
