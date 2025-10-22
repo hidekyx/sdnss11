@@ -2,13 +2,24 @@
 <html class="no-js" lang="zxx">
 
 <head>
+    <title>{{ isset($detailMenu) ? $detailMenu . ' - ' : '' }}SDN Srengseng Sawah 11</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/layout/logo-sekolah.png') }}">
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SDN Srengseng Sawah 11</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/layout/logo-sekolah.png') }}">
-    <!-- Place favicon.ico in the root directory -->
+
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{{ isset($detailMenu) ? $detailMenu . ' - ' : '' }}Website Resmi SDN Srengseng Sawah 11">
+    <meta name="keywords" content="sdnss11, sdn srengseng sawah 11, sekolah dasar negeri srengseng sawah sebelas pagi">
+    <meta name="author" content="SDN Srengseng Sawah 11, srengsengsawah.sdnss11@gmail.com">
+
+    <meta name="og:title" content="{{ isset($detailMenu) ? $detailMenu . ' - ' : '' }}SDN Srengseng Sawah 11">
+    <meta name="og:type" content="{{ isset($berita) && isset($berita->title) ? 'blog' : 'website' }}">
+    <meta name="og:url" content="{{ url()->current() }}">
+    <meta name="og:site_name" content="Website Resmi SDN Srengseng Sawah 11">
+    <meta name="og:description" content="Website Resmi SDN Srengseng Sawah 11">
+    <meta name="og:image" content="{{ isset($berita) && isset($berita->thumbnail) ? asset('storage/images/berita/thumbnail/'.$berita->thumbnail) : asset('assets/images/layout/logo-sekolah.png') }}">
 
     <!-- CSS here -->
     <link href="{{ asset('assets/landing-page/css/bootstrap.min.css') }}" rel="stylesheet">
