@@ -46,43 +46,54 @@
                     <div class="ns-footer-widget mb-40">
                         <h3 class="ns-footer-widget-title">Pengunjung</h3>
                         <div class="row justify-content-between">
-                            <div class="col-xl-3 col-lg-5 col-md-6">
+                            <div class="col-lg col-md-6">
+                                <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
+                                    <div class="px-3">
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-day"></span></h1>
+                                    </div>
+                                    <div class="text-start">
+                                        <p class="pengunjung-kategori-waktu">Hari Ini</p>
+                                        <h1 class="pengunjung-counter">123</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg col-md-6">
                                 <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
                                     <div class="px-3">
                                         <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
                                     </div>
                                     <div class="text-start">
-                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <p class="pengunjung-kategori-waktu">Minggu Ini</p>
                                         <h1 class="pengunjung-counter">123</h1>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-5 col-md-6">
+                            <div class="col-lg col-md-6">
                                 <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
                                     <div class="px-3">
-                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar"></span></h1>
                                     </div>
                                     <div class="text-start">
-                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <p class="pengunjung-kategori-waktu">Bulan Ini</p>
                                         <h1 class="pengunjung-counter">123</h1>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-5 col-md-6">
+                            <div class="col-lg col-md-6">
                                 <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
                                     <div class="px-3">
-                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-check"></span></h1>
                                     </div>
                                     <div class="text-start">
-                                        <p class="pengunjung-kategori-waktu">Total</p>
+                                        <p class="pengunjung-kategori-waktu">Tahun Ini</p>
                                         <h1 class="pengunjung-counter">123</h1>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-5 col-md-6">
+                            <div class="col-lg col-md-6">
                                 <div class="ns-footer-widget-visitor d-flex flex-row align-items-center pb-0">
                                     <div class="px-3">
-                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-week"></span></h1>
+                                        <h1 class="pengunjung-icon"><span class="fa fa-calendar-plus"></span></h1>
                                     </div>
                                     <div class="text-start">
                                         <p class="pengunjung-kategori-waktu">Total</p>
@@ -107,7 +118,7 @@
                 <div class="col-xl-6 col-md-6 col-sm-5">
                     <div class="ns-footer-copyright-menu text-end">
                         <ul>
-                            <li><a href="#">Tentang</a></li>
+                            <li>Mengalami masalah teknis? Hubungi: <a href="https://wa.me/+6287883122665" target="_blank">0878 8312 2665</a></li>
                         </ul>
                     </div>
                 </div>
