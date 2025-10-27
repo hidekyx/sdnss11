@@ -16,5 +16,6 @@ class Ekstrakulikuler extends Model
         'kategori',
         'penanggung_jawab_id',
         'deskripsi',
+        'deskripsi_singkat',
     ];
 }

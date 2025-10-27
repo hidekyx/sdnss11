@@ -19,6 +19,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('penanggung_jawab_id');
                 $table->foreign('penanggung_jawab_id')->references('id')->on('users')->cascadeOnDelete();
                 $table->text('deskripsi');
+                $table->string('deskripsi_singkat');
                 $table->timestamps();
             });
         }
