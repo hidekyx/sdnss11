@@ -43,7 +43,7 @@ class PublikasiController extends Controller
             'kategoriBerita' => Berita::published()->latestWithTotal()->get(),
         ];
 
-        return $this->createView('Berita', 'landing-page.publikasi.berita-detail', $additionalData);
+        return $this->createView($berita->title, 'landing-page.publikasi.berita-detail', $additionalData);
     }
 
     private function applyFilters($query, Request $request): void
@@ -70,6 +70,7 @@ class PublikasiController extends Controller
         $view = [
             'mainMenu' => $this->mainMenu,
             'subMenu' => $this->subMenu,
+            'detailMenu' => $detailMenu,
         ];
 
         return view($viewPath)->with(array_merge($view, $additionalData));
