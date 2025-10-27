@@ -14,6 +14,15 @@ class ProfilController extends Controller
     public $mainMenu = "Profil";
     public $subMenu;
 
+    public function tentangSekolah(Request $request): View
+    {
+        $additionalData = [
+            
+        ];
+
+        return $this->createView('Tentang Sekolah', 'landing-page.profil.tentang-sekolah', $additionalData);
+    }
+
     public function guruDanTendik(Request $request): View
     {
         $this->subMenu = "Guru dan Tendik";

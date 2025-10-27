@@ -1,5 +1,16 @@
+@extends('landing-page.layout.app')
+
+@section('content')
 <section class="ns-about-area pt-35 pb-70">
     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="ns-section mb-50 text-center">
+                    <h2 class="ns-section-title mb-0">Tentang Sekolah</h2>
+                    <span class="ns-section-subtitle">SDN Srengseng Sawah 11 Pagi</span>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xl-6 col-lg-6">
                 <div class="ns-about-left bg-default mb-40" data-background="{{ asset('assets/images/layout/shape-2.png') }}">
@@ -59,3 +70,4 @@
         </div>
     </div>
 </section>
+@endsection

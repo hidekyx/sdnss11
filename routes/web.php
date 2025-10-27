@@ -21,6 +21,7 @@ Route::get('/berita', [PublikasiController::class, 'beritaList'])->name('berita-
 Route::get('/berita/{slug}', [PublikasiController::class, 'beritaDetail'])->name('berita-detail');
 Route::get('/agenda', [PublikasiController::class, 'agendaList'])->name('agenda-list');
 
+Route::get('/tentang-sekolah', [ProfilController::class, 'tentangSekolah'])->name('tentang-sekolah');
 Route::get('/guru-dan-tendik', [ProfilController::class, 'guruDanTendik'])->name('guru-dan-tendik');
 
 Route::get('/kelas-dan-siswa', [KesiswaanController::class, 'kelasDanSiswa'])->name('kelas-dan-siswa');
@@ -69,5 +70,14 @@ Route::prefix('/dashboard')->middleware(Authenticated::class)->group(function ()
         Route::get('/agenda/edit/{id}', [AgendaController::class, 'edit'])->name('dashboard-publikasi-agenda-edit');
         Route::put('/agenda/perbaharui/{id}', [AgendaController::class, 'update'])->name('dashboard-publikasi-agenda-perbaharui');
         Route::delete('/agenda/hapus/{id}', [AgendaController::class, 'delete'])->name('dashboard-publikasi-agenda-hapus');
+    });
+
+    Route::prefix('/kegiatan')->group(function () {
+        Route::get('/ekstrakulikuler', [BeritaController::class, 'index'])->name('dashboard-kegiatan-ekstrakulikuler');
+        Route::get('/ekstrakulikuler/tambah', [BeritaController::class, 'create'])->name('dashboard-kegiatan-ekstrakulikuler-tambah');
+        Route::post('/ekstrakulikuler/simpan', [BeritaController::class, 'store'])->name('dashboard-kegiatan-ekstrakulikuler-simpan');
+        Route::get('/ekstrakulikuler/edit/{id}', [BeritaController::class, 'edit'])->name('dashboard-kegiatan-ekstrakulikuler-edit');
+        Route::put('/ekstrakulikuler/perbaharui/{id}', [BeritaController::class, 'update'])->name('dashboard-kegiatan-ekstrakulikuler-perbaharui');
+        Route::delete('/ekstrakulikuler/hapus/{id}', [BeritaController::class, 'delete'])->name('dashboard-kegiatan-ekstrakulikuler-hapus');
     });
 });

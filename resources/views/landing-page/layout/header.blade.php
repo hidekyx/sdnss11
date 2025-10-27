@@ -33,7 +33,7 @@
                                 <li class="menu-has-child">
                                     <a href="#" class="">Profil</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Tentang Sekolah</a></li>
+                                        <li><a href="{{ route('tentang-sekolah') }}">Tentang Sekolah</a></li>
                                         <li><a href="{{ route('guru-dan-tendik') }}">Guru & Tendik</a></li>
                                         <li><a href="#">Sarana dan Prasarana</a></li>
                                     </ul>

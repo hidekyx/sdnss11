@@ -12122,7 +12122,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 }
 
 .ns-custom-content {
-  width: 565px;
+  /* width: 565px; */
   flex-shrink: 0;
   padding: 0 45px;
 }
