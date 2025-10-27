@@ -47,6 +47,11 @@ class Agenda extends Model
         $query->where('is_published', PublikasiStatus::Unpublished);
     }
 
+    public function scopeOngoing($query)
+    {
+        $query->where('is_published', PublikasiStatus::Published)->whereDate('date', '>=', Carbon::today());
+    }
+
     public function scopeStatus($query, $status)
     {
         if ($status != "Semua") {

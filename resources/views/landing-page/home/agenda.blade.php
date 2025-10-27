@@ -11,6 +11,7 @@
         <div class="ns-service-wrap-2">
             <div class="swiper-container service-active-2">
                 <div class="swiper-wrapper">
+                    @forelse($agendaTerbaru as $at)
                     <div class="swiper-slide">
                         <div class="ns-service-item ns-service-item-2">
                             <div class="ns-service-img ns-service-img-2 w_img">
@@ -19,55 +20,49 @@
                                 </div>
                             </div>
                             <div class="ns-service-content ns-service-content-2">
-                                <h4 class="ns-service-content-title ns-service-content-title-2"><a href="project-details.html">Product To Satelite</a></h4>
-                                <p>We job gives you handcrafted options
-                                    such as front admin reviews or It
-                                    also gives It business
-                                </p>
-                                <a href="project-details.html" class="ns-service-btn ns-service-btn-2">Read More<i class="icofont-plus"></i></a>
+                                <h4 class="ns-service-content-title ns-service-content-title-2">{{ $at->title }}</h4>
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <h3 class="icofont-location-pin text-danger"></h3>
+                                        </td>
+                                        <td>
+                                            <p class="ns-blog-date">{{ $at->location }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3 class="icofont-calendar text-danger"></h3>
+                                        </td>
+                                        <td>
+                                            <p class="ns-blog-date">{{ \Carbon\Carbon::parse($at->date)->isoFormat('D MMMM Y') }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3 class="icofont-clock-time text-danger"></h3>
+                                        </td>
+                                        <td>
+                                            <p class="ns-blog-date">{{ $at->time }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3 class="icofont-user text-danger"></h3>
+                                        </td>
+                                        <td>
+                                            <p class="ns-blog-date">{{ $at->penanggungJawab->name }}</p>
+                                        </td>
+                                    </tr>
+                                </table>
                                 <span class="ns-service-shape-1 ns-service-shape-21"></span>
                                 <span class="ns-service-shape-2 ns-service-shape-22"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="ns-service-item ns-service-item-2">
-                            <div class="ns-service-img ns-service-img-2 w_img">
-                                <div class="ns-service-content-icon ns-service-content-icon-2">
-                                    <i class="icofont-bars"></i>
-                                </div>
-                            </div>
-                            <div class="ns-service-content ns-service-content-2">
-                                <h4 class="ns-service-content-title ns-service-content-title-2"><a href="project-details.html">Business For Network</a></h4>
-                                <p>We job gives you handcrafted options
-                                    such as front admin reviews or It
-                                    also gives It business
-                                </p>
-                                <a href="project-details.html" class="ns-service-btn ns-service-btn-2">Read More<i class="icofont-plus"></i></a>
-                                <span class="ns-service-shape-1 ns-service-shape-21"></span>
-                                <span class="ns-service-shape-2 ns-service-shape-22"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="ns-service-item ns-service-item-2">
-                            <div class="ns-service-img ns-service-img-2 w_img">
-                                <div class="ns-service-content-icon ns-service-content-icon-2">
-                                    <i class="icofont-contrast"></i>
-                                </div>
-                            </div>
-                            <div class="ns-service-content ns-service-content-2">
-                                <h4 class="ns-service-content-title ns-service-content-title-2"><a href="project-details.html">Computer Of Solution</a></h4>
-                                <p>We job gives you handcrafted options
-                                    such as front admin reviews or It
-                                    also gives It business
-                                </p>
-                                <a href="project-details.html" class="ns-service-btn ns-service-btn-2">Read More<i class="icofont-plus"></i></a>
-                                <span class="ns-service-shape-1 ns-service-shape-21"></span>
-                                <span class="ns-service-shape-2 ns-service-shape-22"></span>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                    <span class="ns-section-subtitle text-dark">Belum ada Agenda mendatang</span>
+                    @endforelse
                 </div>
             </div>
             <div class="ns-service-bottom ns-service-bottom-2 mt-50">
