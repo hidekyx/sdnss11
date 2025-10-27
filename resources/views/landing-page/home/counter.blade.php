@@ -1,70 +1,51 @@
-<div class="ns-counter-area pt-110 pb-85">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="ns-section mb-50 text-center">
-                    <span class="ns-section-subtitle">What we do?</span>
-                    <h2 class="ns-section-title mb-0">We High Service That Stand </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="ns-counter-item mb-65">
-                    <div class="ns-counter-item-img w_img">
-                        <img src="assets/img/counter/counter-1.jpg" alt="Not Found">
-                    </div>
-                    <div class="ns-counter-item-content">
-                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="26">00</span><span class="ns-counter-plus">+</span></h2>
-                        <span class="ns-counter-subtitle">Planing Solution</span>
-                        <div class="ns-counter-icon">
-                            <i class="icofont-life-ring"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="ns-counter-item mb-65">
-                    <div class="ns-counter-item-img w_img">
-                        <img src="assets/img/counter/counter-1.jpg" alt="Not Found">
-                    </div>
-                    <div class="ns-counter-item-content">
-                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="35">00</span><span class="ns-counter-plus">k</span></h2>
-                        <span class="ns-counter-subtitle">Projects Analizs</span>
-                        <div class="ns-counter-icon">
-                            <i class="icofont-site-map"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="ns-counter-item mb-65">
-                    <div class="ns-counter-item-img w_img">
-                        <img src="assets/img/counter/counter-1.jpg" alt="Not Found">
-                    </div>
-                    <div class="ns-counter-item-content">
-                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="96">00</span><span class="ns-counter-plus">k</span></h2>
-                        <span class="ns-counter-subtitle">Growing Business</span>
-                        <div class="ns-counter-icon">
-                            <i class="icofont-institution"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="ns-counter-item mb-65">
-                    <div class="ns-counter-item-img w_img">
-                        <img src="assets/img/counter/counter-1.jpg" alt="Not Found">
-                    </div>
-                    <div class="ns-counter-item-content">
-                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="55">00</span><span class="ns-counter-plus">+</span></h2>
-                        <span class="ns-counter-subtitle">Team Support</span>
-                        <div class="ns-counter-icon">
-                            <i class="icofont-live-support"></i>
-                        </div>
+<section class="ns-feature-area">
+    <div class="ns-feature-single pt-95 pb-150 bg-default" data-background="{{ asset('assets/images/layout/feature-map.png') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="ns-section text-center">
+                        <h2 class="ns-section-title ns-text-primary text-uppercase mb-0">Profil Sekolah</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="ns-feature-wrap pb-40">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="ns-feature-item mb-70">
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="12">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah <br>Rombongan Belajar</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-group-students"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="ns-feature-item mb-70">
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="22">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah Pendidik dan Tenaga Kependidikan</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-teacher"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="ns-feature-item mb-70">
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="200">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah Siswa<br> Laki laki</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-businessman"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="ns-feature-item mb-70">
+                        <img class="ns-feature-item-img" src="assets/img/feature/feature-bg-1.jpg" alt="Not Found">
+                        <h2 class="ns-counter-title"><span class="odometer counter_count" data-count="183">00</span></h2>
+                        <span class="ns-counter-subtitle">Jumlah Siswa<br> Perempuan</span>
+                        <div class="ns-feature-item-icon"><i class="icofont-businesswoman"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
