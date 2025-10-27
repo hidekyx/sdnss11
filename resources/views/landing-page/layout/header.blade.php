@@ -41,7 +41,7 @@
                                 <li class="menu-has-child">
                                     <a href="#">Kesiswaan</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Data Siswa</a></li>
+                                        <li><a href="{{ route('kelas-dan-siswa') }}">Kelas dan Siswa</a></li>
                                         <li><a href="#">Monitor Siswa</a></li>
                                         <li><a href="#">Ekstrakulikuler</a></li>
                                     </ul>

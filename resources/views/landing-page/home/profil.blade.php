@@ -54,9 +54,6 @@
                                     <span>Plt. Kepala Sekolah</span>
                                 </div>
                             </div>
-                            <div class="ns-about-content-admin-signature">
-                                <img src="{{ asset('assets/images/layout/signature.png') }}" alt="Not Found">
-                            </div>
                         </div>
                     </div>
                 </div>

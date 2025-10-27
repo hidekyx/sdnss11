@@ -4,6 +4,14 @@
 <section class="ns-blog-list-area pt-115 pb-20">
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <div class="ns-section mb-50 text-center">
+                    <h2 class="ns-section-title mb-0">Berita</h2>
+                    <span class="ns-section-subtitle">SDN Srengseng Sawah 11 Pagi</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xl-8 col-lg-7">
                 <div class="ns-blog-list-wrap">
                     @foreach($berita as $b)

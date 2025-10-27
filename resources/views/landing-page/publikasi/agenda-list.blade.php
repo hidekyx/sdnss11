@@ -5,6 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <div class="ns-section mb-50 text-center">
+                    <h2 class="ns-section-title mb-0">Agenda</h2>
+                    <span class="ns-section-subtitle">SDN Srengseng Sawah 11 Pagi</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <div class="table table-responsive">
                     <table class="table table-striped table-hover">
                         <thead class="ns-bg-primary fw-bold">

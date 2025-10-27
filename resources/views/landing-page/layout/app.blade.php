@@ -73,6 +73,8 @@
     <script src="{{ asset('assets/landing-page/js/odometer.min.js') }}"></script>
     <script src="{{ asset('assets/landing-page/js/appear.min.js') }}"></script>
     <script src="{{ asset('assets/landing-page/js/main.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

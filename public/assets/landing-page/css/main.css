@@ -12959,3 +12959,12 @@ input:focus::placeholder, textarea:focus::placeholder {
 .text-justify {
   text-align: justify !important;
 }
+
+.tab-kelas-btn {
+    padding: 0 20px !important;
+}
+
+.tab-kelas-btn.active {
+    background-color: var(--clr-body-heading);
+    color: white;
+}

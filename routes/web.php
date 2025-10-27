@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
 use App\Http\Controllers\Dashboard\KelasController;
 use App\Http\Controllers\Dashboard\SiswaController;
 use App\Http\Controllers\LandingPage\HomeController as LandingPageHomeController;
+use App\Http\Controllers\LandingPage\KesiswaanController;
 use App\Http\Controllers\LandingPage\ProfilController;
 use App\Http\Controllers\LandingPage\PublikasiController;
 use App\Http\Middleware\Authenticated;
@@ -21,6 +22,8 @@ Route::get('/berita/{slug}', [PublikasiController::class, 'beritaDetail'])->name
 Route::get('/agenda', [PublikasiController::class, 'agendaList'])->name('agenda-list');
 
 Route::get('/guru-dan-tendik', [ProfilController::class, 'guruDanTendik'])->name('guru-dan-tendik');
+
+Route::get('/kelas-dan-siswa', [KesiswaanController::class, 'kelasDanSiswa'])->name('kelas-dan-siswa');
 
 Route::middleware(Unauthenticated::class)->group(function () {
     Route::get('/login', [AutentikasiController::class, 'login'])->name('login');
