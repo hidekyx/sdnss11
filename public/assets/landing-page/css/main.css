@@ -12908,6 +12908,11 @@ input:focus::placeholder, textarea:focus::placeholder {
   color: var(--clr-theme-primary);
 }
 
+.ns-bg-primary {
+  background-color: var(--clr-theme-primary);
+  color: var(--clr-common-white);
+}
+
 .ns-footer-widget-visitor {
 	background-color: #fff;
 	border-radius: 10px;

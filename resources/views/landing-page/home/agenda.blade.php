@@ -2,10 +2,13 @@
     <img src="{{ asset('assets/landing-page/images/agenda-bg.jpg') }}" class="ns-service-bg-img-2">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-sm-6">
                 <div class="ns-section mb-50 text-left">
                     <h2 class="ns-section-title text-uppercase ns-text-primary mb-0">AGENDA SEKOLAH</h2>
                 </div>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a href="{{ route('agenda-list') }}" class="ns-recent-btn ns-theme-btn">Lihat Riwayat Agenda <i class="fal fa-arrow-right"></i></a>
             </div>
         </div>
         <div class="ns-service-wrap-2">

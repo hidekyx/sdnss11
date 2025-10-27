@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\LandingPage;
 
 use App\Http\Controllers\Controller;
+use App\Models\Agenda;
 use App\Models\Berita;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -44,6 +45,19 @@ class PublikasiController extends Controller
         ];
 
         return $this->createView($berita->title, 'landing-page.publikasi.berita-detail', $additionalData);
+    }
+
+    public function agendaList(Request $request): View
+    {
+        $this->subMenu = "Agenda";
+        $agenda = Agenda::orderByDesc('date')->published();
+        $this->applyFilters($agenda, $request);
+
+        $additionalData = [
+            'agenda' => $agenda->paginate(10),
+        ];
+
+        return $this->createView('Agenda', 'landing-page.publikasi.agenda-list', $additionalData);
     }
 
     private function applyFilters($query, Request $request): void

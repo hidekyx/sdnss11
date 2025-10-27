@@ -17,6 +17,7 @@ Route::get('/', [LandingPageHomeController::class, 'index'])->name('beranda');
 
 Route::get('/berita', [PublikasiController::class, 'beritaList'])->name('berita-list');
 Route::get('/berita/{slug}', [PublikasiController::class, 'beritaDetail'])->name('berita-detail');
+Route::get('/agenda', [PublikasiController::class, 'agendaList'])->name('agenda-list');
 
 Route::middleware(Unauthenticated::class)->group(function () {
     Route::get('/login', [AutentikasiController::class, 'login'])->name('login');

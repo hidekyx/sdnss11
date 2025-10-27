@@ -58,7 +58,7 @@
                                     <a href="#" class="">Publikasi</a>
                                     <ul class="submenu">
                                         <li><a href="{{ route('berita-list') }}">Berita</a></li>
-                                        <li><a href="#">Agenda</a></li>
+                                        <li><a href="{{ route('agenda-list') }}">Agenda</a></li>
                                         <li><a href="#">Prestasi</a></li>
                                     </ul>
                                 </li>
