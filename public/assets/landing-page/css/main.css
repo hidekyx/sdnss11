@@ -12968,3 +12968,9 @@ input:focus::placeholder, textarea:focus::placeholder {
     background-color: var(--clr-body-heading);
     color: white;
 }
+
+.thumbnail-ekstrakulikuler {
+  width: 450px;
+  height: 570px;
+  object-fit: cover;
+}

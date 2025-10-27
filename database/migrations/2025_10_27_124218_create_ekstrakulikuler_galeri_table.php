@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if(!Schema::hasTable('ekstrakulikuler_siswa')) {
-            Schema::create('ekstrakulikuler_siswa', function (Blueprint $table) {
+        if(!Schema::hasTable('ekstrakulikuler_galeri')) {
+            Schema::create('ekstrakulikuler_galeri', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('ekstrakulikuler_id')->constrained('ekstrakulikuler')->cascadeOnDelete();
-                $table->string('nama');
+                $table->string('title');
                 $table->string('img')->nullable();
                 $table->timestamps();
             });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ekstrakulikuler_siswa');
+        Schema::dropIfExists('ekstrakulikuler_galeri');
     }
 };

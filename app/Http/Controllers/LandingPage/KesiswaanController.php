@@ -4,6 +4,7 @@ namespace App\Http\Controllers\LandingPage;
 
 use App\Enums\Role;
 use App\Http\Controllers\Controller;
+use App\Models\Ekstrakulikuler;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\User;
@@ -27,6 +28,28 @@ class KesiswaanController extends Controller
         ];
 
         return $this->createView('Kelas dan Siswa', 'landing-page.kesiswaan.kelas-dan-siswa', $additionalData);
+    }
+
+    public function ekstrakulikuler(Request $request): View
+    {
+        $additionalData = [
+            'ekstrakulikuler' => Ekstrakulikuler::get(),
+        ];
+
+        return $this->createView('Ekstrakulikuler', 'landing-page.kesiswaan.ekstrakulikuler-list', $additionalData);
+    }
+
+    public function ekstrakulikulerDetail(Request $request, $nama): View
+    {
+        $ekstrakulikuler = Ekstrakulikuler::where('nama', str_replace('-', ' ', $nama));
+        $additionalData = [
+            'ekstrakulikuler' => $ekstrakulikuler->firstOrFail(),
+            'kelas' => Kelas::orderBy('id')->get(),
+        ];
+
+        // dd($additionalData['ekstrakulikuler']->siswa->first()->siswa->kelas);
+
+        return $this->createView('Ekstrakulikuler', 'landing-page.kesiswaan.ekstrakulikuler-detail', $additionalData);
     }
 
     private function applyFilters($query, Request $request): void

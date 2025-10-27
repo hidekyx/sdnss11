@@ -1,3 +1,6 @@
+@extends('landing-page.layout.app')
+
+@section('content')
 <section class="ns-project-area-5 pt-50">
     <div class="container">
         <div class="row align-items-center">
@@ -51,3 +54,4 @@
         </div>
     </div>
 </section>
+@endsection

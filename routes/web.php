@@ -25,6 +25,8 @@ Route::get('/tentang-sekolah', [ProfilController::class, 'tentangSekolah'])->nam
 Route::get('/guru-dan-tendik', [ProfilController::class, 'guruDanTendik'])->name('guru-dan-tendik');
 
 Route::get('/kelas-dan-siswa', [KesiswaanController::class, 'kelasDanSiswa'])->name('kelas-dan-siswa');
+Route::get('/ekstrakulikuler', [KesiswaanController::class, 'ekstrakulikuler'])->name('ekstrakulikuler');
+Route::get('/ekstrakulikuler/{nama}', [KesiswaanController::class, 'ekstrakulikulerDetail'])->name('ekstrakulikuler-detail');
 
 Route::middleware(Unauthenticated::class)->group(function () {
     Route::get('/login', [AutentikasiController::class, 'login'])->name('login');

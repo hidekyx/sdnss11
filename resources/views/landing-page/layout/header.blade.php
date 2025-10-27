@@ -43,7 +43,7 @@
                                     <ul class="submenu">
                                         <li><a href="{{ route('kelas-dan-siswa') }}">Kelas dan Siswa</a></li>
                                         <li><a href="#">Monitor Siswa</a></li>
-                                        <li><a href="#">Ekstrakulikuler</a></li>
+                                        <li><a href="{{ route('ekstrakulikuler') }}">Ekstrakulikuler</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-has-child">
