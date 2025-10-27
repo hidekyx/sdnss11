@@ -28,7 +28,7 @@
                         <div class="ns-about-content-bottom">
                             <div class="ns-about-content-admin">
                                 <div class="ns-about-content-admin-img">
-                                    <img src="{{ asset('assets/images/layout/about-admin.png') }}" alt="Not Found">
+                                    <img src="{{ asset('assets/dashboard/images/profile-default.png') }}" alt="Not Found">
                                 </div>
                                 <div class="ns-about-content-admin-info">
                                     <h4 class="ns-about-admin-title"><a href="about.html">Arianto, S.Kom</a></h4>
