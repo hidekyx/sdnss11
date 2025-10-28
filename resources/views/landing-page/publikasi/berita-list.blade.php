@@ -20,42 +20,42 @@
                             <div class="swiper-container blog-list-active">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
 
                                     @if($b->img_2)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img_2) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_2) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
                                     @endif
 
                                     @if($b->img_3)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img_3) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_3) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
                                     @endif
 
                                     @if($b->img_4)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img_4) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_4) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
                                     @endif
 
                                     @if($b->img_5)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img_5) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_5) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
                                     @endif
 
                                     @if($b->img_6)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img_6) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_6) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
                                     @endif
 
                                     @if($b->img_7)
                                     <div class="swiper-slide">
-                                        <img src="{{ asset('storage/images/berita/'.$b->img_7) }}" alt="Foto Berita">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_7) }}" alt="Foto Berita" class="berita-list-foto">
                                     </div>
                                     @endif
 
@@ -73,8 +73,8 @@
                                 <span class="ns-blog-list-admin"><i class="icofont-pencil"></i>{{ $b->writer?->name }}</span>
                                 <span class="ns-blog-list-comment"><i class="icofont-archive"></i>{{ $b->kategori->text() }}</span>
                                 <span class="ns-blog-list-date"><i class="icofont-calendar"></i>{{ $b->published_at ? \Carbon\Carbon::parse($b->published_at)->isoFormat('D MMMM Y') : '-' }}</span>
-                                <span class="ns-blog-list-comment"><i class="icofont-speech-comments"></i>Komentar (0)</span>
-                                <span class="ns-blog-list-comment"><i class="icofont-eye"></i>Dibaca ({{ $b->viewed }})</span>
+                                <span class="ns-blog-list-comment"><i class="icofont-speech-comments"></i>(0)</span>
+                                <span class="ns-blog-list-comment"><i class="icofont-eye"></i>({{ $b->viewed }})</span>
                             </div>
                             <h3 class="ns-blog-list-title">
                                 <a href="{{ route('berita-detail', $b->slug) }}">{{ $b->title }}</a>

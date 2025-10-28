@@ -12974,3 +12974,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   height: 570px;
   object-fit: cover;
 }
+
+.berita-list-foto {
+  width: 100%;
+  height: 450px !important;
+  object-fit: cover;
+  object-position: bottom center;
+}
