@@ -49,7 +49,7 @@ class BeritaController extends Controller
         try {
             $data = $request->validated();
 
-            $imageKeys = ['img', 'img_2', 'img_3', 'img_4'];
+            $imageKeys = ['img', 'img_2', 'img_3', 'img_4', 'img_5', 'img_6', 'img_7'];
             foreach ($imageKeys as $key) {
                 if ($request->hasFile($key)) {
                     $data[$key] = storeBeritaImage($request->file($key), 'images/berita');
@@ -119,7 +119,7 @@ class BeritaController extends Controller
 
             $data = $request->validated();
 
-            $imageKeys = ['img', 'img_2', 'img_3', 'img_4'];
+            $imageKeys = ['img', 'img_2', 'img_3', 'img_4', 'img_5', 'img_6', 'img_7'];
             foreach ($imageKeys as $index => $key) {
                 if ($request->hasFile($key)) {
                     $data[$key] = storeBeritaImage($request->file($key), 'images/berita');

@@ -34,20 +34,38 @@
 
                     <div class="row">
                         @if($berita->img_2)
-                        <div class="col-lg mb-4">
+                        <div class="col-lg-6 mb-4">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_2) }}" alt="Foto Berita">
                         </div>
                         @endif
 
                         @if($berita->img_3)
-                        <div class="col-lg mb-4">
+                        <div class="col-lg-6 mb-4">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_3) }}" alt="Foto Berita">
                         </div>
                         @endif
 
                         @if($berita->img_4)
-                        <div class="col-lg mb-4">
+                        <div class="col-lg-6 mb-4">
                             <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_4) }}" alt="Foto Berita">
+                        </div>
+                        @endif
+
+                        @if($berita->img_5)
+                        <div class="col-lg-6 mb-4">
+                            <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_5) }}" alt="Foto Berita">
+                        </div>
+                        @endif
+
+                        @if($berita->img_6)
+                        <div class="col-lg-6 mb-4">
+                            <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_6) }}" alt="Foto Berita">
+                        </div>
+                        @endif
+
+                        @if($berita->img_7)
+                        <div class="col-lg-6 mb-4">
+                            <img class="ns-blog-details-banner-img-bottom" src="{{ asset('storage/images/berita/'.$berita->img_7) }}" alt="Foto Berita">
                         </div>
                         @endif
                     </div>

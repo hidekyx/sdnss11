@@ -127,8 +127,8 @@
                                     <label class="col-sm-3 col-form-label">Foto Tambahan</label>
                                     <div class="col-sm-9">
                                         <div class="row">
-                                            @foreach (range(2, 4) as $num)
-                                            <div class="col-lg-4">
+                                            @foreach (range(2, 7) as $num)
+                                            <div class="col-lg-4 mb-3">
                                                 <input id="img_{{ $num }}" name="img_{{ $num }}" class="form-control mb-3" type="file" placeholder="img" accept=".png, .jpg, .jpeg">
                                                 @if(isset($berita) && $berita->{'img_' . $num} && Storage::disk('public')->exists('images/berita/' . $berita->{'img_' . $num}))
                                                 <img id="foto-preview_img_{{ $num }}" class="rounded" alt="Foto Tambahan" src="{{ asset('storage/images/berita/'.$berita->{'img_' . $num}) }}" width="125">

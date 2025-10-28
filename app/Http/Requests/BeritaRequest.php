@@ -34,6 +34,9 @@ class BeritaRequest extends FormRequest
             'img_2' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
             'img_3' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
             'img_4' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
+            'img_5' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
+            'img_6' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
+            'img_7' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
         ];
 
         return $rules;
@@ -60,6 +63,15 @@ class BeritaRequest extends FormRequest
             'img_4.image' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
             'img_4.mimes' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
             'img_4.max' => 'Maksimal ukuran foto keempat yang diupload harus kurang dari 10MB',
+            'img_5.image' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
+            'img_5.mimes' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
+            'img_5.max' => 'Maksimal ukuran foto keempat yang diupload harus kurang dari 10MB',
+            'img_6.image' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
+            'img_6.mimes' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
+            'img_6.max' => 'Maksimal ukuran foto keempat yang diupload harus kurang dari 10MB',
+            'img_7.image' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
+            'img_7.mimes' => 'Format foto keempat yang diupload harus sesuai (jpeg, png, jpg)',
+            'img_7.max' => 'Maksimal ukuran foto keempat yang diupload harus kurang dari 10MB',
             'published_at_submit.date' => 'Format tanggal publikasi tidak valid',
         ];
     }

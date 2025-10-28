@@ -41,6 +41,24 @@
                                     </div>
                                     @endif
 
+                                    @if($b->img_5)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_5) }}" alt="Foto Berita">
+                                    </div>
+                                    @endif
+
+                                    @if($b->img_6)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_6) }}" alt="Foto Berita">
+                                    </div>
+                                    @endif
+
+                                    @if($b->img_7)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/images/berita/'.$b->img_7) }}" alt="Foto Berita">
+                                    </div>
+                                    @endif
+
                                 </div>
                                 <div class="ns-blog-list-navigation">
                                     <div class="ns-blog-list-swiper-prev"><i class="icofont-circled-left"></i>
