@@ -27,7 +27,11 @@
                                 <span>{{ Auth::user()->name }}</span>
                                 <small>{{ Auth::user()->role->name }}</small>
                             </div>
+                            @if(Auth::user()->avatar && Storage::disk('public')->exists('images/avatar/' . Auth::user()->avatar))
+                            <img src="{{ asset('storage/images/avatar/'.Auth::user()->avatar) }}" width="20">
+                            @else
                             <img src="{{ asset('assets/dashboard/images/profile-default.png') }}" width="20">
+                            @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="#" class="dropdown-item ai-icon">

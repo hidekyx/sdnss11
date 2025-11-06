@@ -27,10 +27,6 @@
                             <h5 class="ns-team-info-title"><a href="#">{{ $gdt->name }}</a></h5>
                             <span>{{ $gdt->role->name }}</span>
                         </div>
-                        <div class="p-3">
-                            <p class="mb-0"><a href="#"><i class="icofont-whatsapp text-danger"></i> {{ $gdt->no_hp ?? '-' }}</p>
-                            <p class="mb-0"><a href="#"><i class="icofont-envelope-open text-danger"></i> {{ $gdt->email }}</a></p>
-                        </div>
                     </div>
                     <span class="ns-team-shape-1 ns-team-shape"></span>
                     <span class="ns-team-shape-2 ns-team-shape"></span>

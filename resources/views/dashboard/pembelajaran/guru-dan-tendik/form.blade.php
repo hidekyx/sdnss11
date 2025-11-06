@@ -92,19 +92,19 @@
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="nip">NIP</label>
                                     <div class="col-sm-9">
-                                        <input type="number" name="nip" id="nip" class="form-control" placeholder="NIP" value="{{ $user->nip ?? '' }}" required>
+                                        <input type="number" name="nip" id="nip" class="form-control" placeholder="NIP" value="{{ $user->nip ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="nrk">NRK</label>
                                     <div class="col-sm-9">
-                                        <input type="number" name="nrk" id="nrk" class="form-control" placeholder="NRK" value="{{ $user->nrk ?? '' }}" required>
+                                        <input type="number" name="nrk" id="nrk" class="form-control" placeholder="NRK" value="{{ $user->nrk ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="no_hp">No HP</label>
                                     <div class="col-sm-9">
-                                        <input type="number" name="no_hp" id="no_hp" class="form-control" placeholder="No HP" value="{{ $user->no_hp ?? '' }}" required>
+                                        <input type="number" name="no_hp" id="no_hp" class="form-control" placeholder="No HP" value="{{ $user->no_hp ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -112,10 +112,10 @@
                                     <div class="col-sm-9">
                                         <div class="row">
                                             <div class="col-6">
-                                                <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="{{ $user->tempat_lahir ?? '' }}" required>
+                                                <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="{{ $user->tempat_lahir ?? '' }}">
                                             </div>
                                             <div class="col-6">
-                                                <input name="tanggal_lahir" class="datepicker-default form-control" id="tanggal_lahir" placeholder="Tanggal Lahir" data-value="{{ isset($user) && $user->tanggal_lahir ? \Carbon\Carbon::parse($user->tanggal_lahir)->isoFormat('Y/MM/D') : '' }}" required>
+                                                <input name="tanggal_lahir" class="datepicker-default form-control" id="tanggal_lahir" placeholder="Tanggal Lahir" data-value="{{ isset($user) && $user->tanggal_lahir ? \Carbon\Carbon::parse($user->tanggal_lahir)->isoFormat('Y/MM/D') : '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                 <div class="mb-3 row">
                                     <label class="col-sm-3 col-form-label" for="alamat">Alamat</label>
                                     <div class="col-sm-9">
-                                        <textarea id="alamat" name="alamat" class="form-control" placeholder="Alamat" rows="4" required>{{ $user->alamat ?? '' }}</textarea>
+                                        <textarea id="alamat" name="alamat" class="form-control" placeholder="Alamat" rows="4">{{ $user->alamat ?? '' }}</textarea>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">

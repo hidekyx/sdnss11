@@ -24,8 +24,8 @@ if (!function_exists('createThumbnail')) {
     }
 }
 
-if (!function_exists('storeBeritaImage')) {
-    function storeBeritaImage($file, $destinationPath)
+if (!function_exists('storeImageWatermark')) {
+    function storeImageWatermark($file, $destinationPath)
     {
         $manager = new ImageManager(new Driver());
 

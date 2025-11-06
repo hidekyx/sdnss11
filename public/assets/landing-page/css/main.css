@@ -11141,7 +11141,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 .ns-team-item-info {
   border-bottom: 1px solid #ddd;
   text-align: center;
-  padding: 35px 0 14px;
+  padding: 14px 0 14px;
 }
 .ns-team-item-contact {
   padding: 20px 20px;

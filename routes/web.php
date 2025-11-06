@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\AutentikasiController;
 use App\Http\Controllers\Dashboard\BeritaController;
 use App\Http\Controllers\Dashboard\GuruDanTendikController;
 use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
+use App\Http\Controllers\Dashboard\InfografisController;
 use App\Http\Controllers\Dashboard\KelasController;
 use App\Http\Controllers\Dashboard\SiswaController;
 use App\Http\Controllers\LandingPage\HomeController as LandingPageHomeController;
@@ -72,6 +73,13 @@ Route::prefix('/dashboard')->middleware(Authenticated::class)->group(function ()
         Route::get('/agenda/edit/{id}', [AgendaController::class, 'edit'])->name('dashboard-publikasi-agenda-edit');
         Route::put('/agenda/perbaharui/{id}', [AgendaController::class, 'update'])->name('dashboard-publikasi-agenda-perbaharui');
         Route::delete('/agenda/hapus/{id}', [AgendaController::class, 'delete'])->name('dashboard-publikasi-agenda-hapus');
+
+        Route::get('/infografis', [InfografisController::class, 'index'])->name('dashboard-publikasi-infografis');
+        Route::get('/infografis/tambah', [InfografisController::class, 'create'])->name('dashboard-publikasi-infografis-tambah');
+        Route::post('/infografis/simpan', [InfografisController::class, 'store'])->name('dashboard-publikasi-infografis-simpan');
+        Route::get('/infografis/edit/{id}', [InfografisController::class, 'edit'])->name('dashboard-publikasi-infografis-edit');
+        Route::put('/infografis/perbaharui/{id}', [InfografisController::class, 'update'])->name('dashboard-publikasi-infografis-perbaharui');
+        Route::delete('/infografis/hapus/{id}', [InfografisController::class, 'delete'])->name('dashboard-publikasi-infografis-hapus');
     });
 
     Route::prefix('/kegiatan')->group(function () {
